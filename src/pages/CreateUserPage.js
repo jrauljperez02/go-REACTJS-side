@@ -24,7 +24,8 @@ const CreateUserPage = () => {
     email: '',
     password: '',
     birthday: null,
-    gender: ''
+    username: '',
+    gender: null
   })
   const [password2, setPassword2] = useState('')
 
@@ -35,6 +36,8 @@ const CreateUserPage = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+
+    console.log(input)
     
     if(!input.email.includes('@')){
       setIsEmailCorrect(false)
@@ -80,9 +83,13 @@ const CreateUserPage = () => {
                 <input type="text" className="form-control" placeholder="Second name" required aria-describedby="basic-addon1" onChange = {e => setInput({...input, last_name: e.target.value})}/>
               </div>
 
+              <div className='input-group mb-3 input-names'>
+                <input type="text" className="form-control" placeholder="Email" aria-describedby="basic-addon1" onChange = {e => setInput({...input, email: e.target.value})}/>
+              </div>
+
 
               <div className='input-group mb-3 input-names'>
-                <input type="text" className="form-control" style = {isEmailCorrect ? null : {borderColor: 'red', backgroundColor: '#FFB5A6'}}  placeholder="Email" aria-describedby="basic-addon1" onChange = {e => setInput({...input, email: e.target.value})}/>
+                <input type="text" className="form-control" style = {isEmailCorrect ? null : {borderColor: 'red', backgroundColor: '#FFB5A6'}}  placeholder="Username" aria-describedby="basic-addon1" onChange = {e => setInput({...input, username: e.target.value})}/>
               </div>
 
               <div className='input-group mb-3 input-names'>

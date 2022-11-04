@@ -9,3 +9,11 @@ button:hover{
     background-color: #0086ab;
     transition: 0.5s;
 }
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
