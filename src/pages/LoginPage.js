@@ -11,6 +11,7 @@ import {
   }
   from 'mdb-react-ui-kit';
 import logo from '../images/logo.png'
+import {Link} from 'react-router-dom'
 
 const LoginPage = () => {
   return (
@@ -39,7 +40,12 @@ const LoginPage = () => {
               <button className="mb-4 px-5" color='dark' size='lg'>Login</button>
 
               <a className="small text-muted" href="#!">Forgot password?</a>
-              <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Don't have an account? <a href="#!" style={{color: '#393f81'}}>Register here</a></p>
+
+
+              <Link to = '/create-user/'>
+                <p  style={{color: '#393f81'}}>Don't have an account? <span>Register here</span></p>
+              </Link>
+             
 
               <div className='d-flex flex-row justify-content-start'>
                 <a href="#!" className="small text-muted me-1">Terms of use.</a>
