@@ -1,3 +1,6 @@
+body{
+    margin: 0;
+}
 button{
     padding: 10px;
     border: none;
@@ -16,4 +19,32 @@ content: "";
 flex: 1;
 height: 1px;
 background: #eee;
+}
+
+.finder{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    
+}
+.user-found-item{
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+    padding: 10px;
+}
+.user-found-item img{
+    max-width: 80px;
+    margin-right: 10px;
+}
+
+.user-found-item-text p{
+    margin: 0;
+    line-height: 20px;
 }

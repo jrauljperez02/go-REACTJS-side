@@ -19,7 +19,7 @@ export const AuthProvider = ({children}) => {
         let response = await fetch('http://127.0.0.1:8000/api/token/tokens/', {
             method:'POST',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
             },
             body:JSON.stringify({'email':e.target.email.value, 'password':e.target.password.value})
         })
@@ -28,7 +28,7 @@ export const AuthProvider = ({children}) => {
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            navigate(`/propfile/${user.email}/`)
+            navigate(`/profile/${user.username}`)
         }else{
             alert('Something went wrong!')
         }

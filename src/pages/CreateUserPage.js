@@ -48,7 +48,7 @@ const CreateUserPage = () => {
       setIsEmailCorrect(true);
       setIsPasswordOK(true);
       
-      const response = await fetch( DOMAIN + '/api/user/create/',{
+      const response = await fetch( DOMAIN + '/api/user/users/',{
         method: 'POST',
         headers: {
            "Content-type": "application/json; charset=UTF-8"
@@ -80,7 +80,7 @@ const CreateUserPage = () => {
 
               <div className='input-group mb-3 input-names'>
                 <input type="text" className="form-control" placeholder="First name" aria-describedby="basic-addon1" onChange = {e => setInput({...input, first_name: e.target.value})}/>
-                <input type="text" className="form-control" placeholder="Second name" required aria-describedby="basic-addon1" onChange = {e => setInput({...input, last_name: e.target.value})}/>
+                <input type="text" className="form-control" placeholder="Last name" required aria-describedby="basic-addon1" onChange = {e => setInput({...input, last_name: e.target.value})}/>
               </div>
 
               <div className='input-group mb-3 input-names'>
@@ -119,7 +119,7 @@ const CreateUserPage = () => {
           </MDBCol>
 
           <MDBCol md='6'>
-            <MDBCardImage src='https://images.pexels.com/photos/5605423/pexels-photo-5605423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt="login form" className='rounded-start w-100'/>
+            <MDBCardImage src='https://images.pexels.com/photos/4331158/pexels-photo-4331158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt="login form" className='rounded-start w-100'/>
           </MDBCol>
 
         </MDBRow>

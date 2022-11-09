@@ -11,6 +11,7 @@ import {
   MDBIcon,
 }
 from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 
 const LoginPage = () => {
@@ -49,13 +50,18 @@ const LoginPage = () => {
 
               <div className='input-group mb-3 input-names'>
                 <input 
-                  type="text" 
+                  type="password" 
                   className="form-control" 
                   placeholder='Password'
                   name = 'password' />
               </div>
 
-              <button className="mb-4 px-5" type = 'submit' color='dark' size='lg'>Login</button>
+              <button className="mb-4 px-5" type = 'submit' color='dark' size='lg'>Login</button><hr/>
+
+              <Link to = '/create-user/' style={{
+                color: 'steelblue',
+                textDecoration: 'none'
+              }}>Don't you have an account? - Sign up!</Link>
             </form>
 
           </MDBCardBody>
