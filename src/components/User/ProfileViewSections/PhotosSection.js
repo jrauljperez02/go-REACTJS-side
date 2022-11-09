@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../styles/Photos-section.scss'
+import '../../../styles/grid-section.scss'
 
 const PhotosSection = () => {
   
@@ -17,7 +17,7 @@ const PhotosSection = () => {
   ]
 
   return (
-    <div className='grid-section'>
+    <div className='photos-section'>
       {pictures.map(picture => <img key = {picture} alt= ''  src = {picture}/>)}
     </div>
   )

@@ -1,0 +1,38 @@
+.videos-section{
+    margin-top: 50px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+
+
+    img{
+        max-width: 100%;
+        border-radius: 5px;
+    }
+    video{
+        max-width: 100%;
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+
+.photos-section{
+    margin-top: 50px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+
+
+    img{
+        max-width: 100%;
+        border-radius: 5px;
+    }
+}

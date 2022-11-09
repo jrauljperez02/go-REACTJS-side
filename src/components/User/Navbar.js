@@ -9,17 +9,21 @@ const Navbar = () => {
 
   const dispatch = useDispatch()
 
-  const showPostsHandler = () => {
+  const showPostsHandler = (e) => {
+    e.preventDefault();
     dispatch(navbarActions.openPostsSection())
   }
-  const showAboutHandler = () => {
+  const showAboutHandler = (e) => {
+    e.preventDefault();
     dispatch(navbarActions.openAboutSection())
   }
-  const showPhotosHandler = () => {
+  const showPhotosHandler = (e) => {
+    e.preventDefault();
     dispatch(navbarActions.openPhotosSection())
   }
 
-  const showVideosSection = () => {
+  const showVideosSection = (e) => {
+    e.preventDefault();
     dispatch(navbarActions.openVideoSection())
   }
 
