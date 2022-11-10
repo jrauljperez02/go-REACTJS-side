@@ -30,7 +30,7 @@ const UserProfilePage = () => {
             <div className="row">
                 <div className="col-md-12">
                     <UserHeaderProfile/>
-                    
+
                     {showPosts && <Posts/>}
                     {showAbout && <AboutSection/>}
                     {showPhotos && <PhotosSection/>}

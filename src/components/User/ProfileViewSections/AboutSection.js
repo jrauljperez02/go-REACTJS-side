@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../../styles/about-page.scss'
 
+
 const AboutSection = () => {
 
   const friends = [

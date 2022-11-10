@@ -1,11 +1,14 @@
 import React from 'react'
+import CreatePost from '../../CreatePost'
 
 const Posts = () => {
   return (
     <div className="profile-content">
        <div className="tab-content p-0">
           <div className="tab-pane fade active show" id="profile-post">
+          <CreatePost/>
              <ul className="timeline">
+
                 <li>
                    <div className="timeline-time">
                       <span className="date">today</span>
