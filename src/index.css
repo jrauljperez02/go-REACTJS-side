@@ -4,7 +4,7 @@ body{
 button{
     padding: 10px;
     border: none;
-    background-color: #003e4f ;
+    background-color: #002832;
     border-radius: 6px;
     color: white;
 }
@@ -12,39 +12,9 @@ button:hover{
     background-color: #0086ab;
     transition: 0.5s;
 }
-
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
-}
-
-.finder{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    max-width: 80%;
-    margin: 0 auto;
-    margin-top: 20px;
-    
-}
-.user-found-item{
-    display: flex;
-    align-items: center;
-    text-align: left;
-
-    padding: 10px;
-}
-.user-found-item img{
-    max-width: 80px;
+i{
     margin-right: 10px;
 }
-
-.user-found-item-text p{
-    margin: 0;
-    line-height: 20px;
+.post-username{
+    margin-right: 20px;
 }

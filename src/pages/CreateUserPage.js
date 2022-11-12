@@ -19,8 +19,7 @@ const CreateUserPage = () => {
   const gender = ['Male', 'Female', 'Prefer not to say']
 
   const [input, setInput] = useState({
-    first_name: '',
-    last_name : '',
+    name: '',
     email: '',
     password: '',
     birthday: null,
@@ -48,7 +47,7 @@ const CreateUserPage = () => {
       setIsEmailCorrect(true);
       setIsPasswordOK(true);
       
-      const response = await fetch( DOMAIN + '/api/user/users/',{
+      const response = await fetch( DOMAIN + '/api/user/create/',{
         method: 'POST',
         headers: {
            "Content-type": "application/json; charset=UTF-8"
@@ -79,8 +78,7 @@ const CreateUserPage = () => {
               <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Create account</h5>
 
               <div className='input-group mb-3 input-names'>
-                <input type="text" className="form-control" placeholder="First name" aria-describedby="basic-addon1" onChange = {e => setInput({...input, first_name: e.target.value})}/>
-                <input type="text" className="form-control" placeholder="Last name" required aria-describedby="basic-addon1" onChange = {e => setInput({...input, last_name: e.target.value})}/>
+                <input type="text" className="form-control" placeholder="Name" aria-describedby="basic-addon1" onChange = {e => setInput({...input, name: e.target.value})}/>
               </div>
 
               <div className='input-group mb-3 input-names'>

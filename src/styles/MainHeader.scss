@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #00132e;
+    background-color: #000000;
 
     .header-left{
       display: flex;
@@ -19,9 +19,6 @@
         gap: 70px;
       }
 
-
-
-
       input{
         border: none;
         padding-bottom: 5px;
@@ -30,6 +27,8 @@
         padding-right: 100px;
         border-radius: 5px;
       }
+
+      
 
       h1{
         color: white;

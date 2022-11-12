@@ -1,5 +1,6 @@
 import React from 'react'
 import UserFinderItem from './UserFinderItem';
+import '../../styles/user-finder-list.scss'
 
 const UserFinderList = (props) => {
 

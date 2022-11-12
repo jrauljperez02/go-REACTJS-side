@@ -6,9 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #d3d3d3;
-
-
+    background-color: #000000;
 
     .footer-left{
       display: flex;
@@ -16,9 +14,9 @@
       gap: 60px;
 
       h1{
-        background-color: #3d3d3d;
+
         padding: 5px 22px;
-        color: rgb(251, 251, 251);
+        color: rgb(255, 255, 255);
         border-radius: 5px;
       }
     }
@@ -32,7 +30,7 @@
       align-items: center;
 
       li{
-        color: black;
+        color: rgb(255, 255, 255);
         padding-right: 15px;
       }
 

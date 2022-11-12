@@ -2,6 +2,8 @@ import { createContext, useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
+import { DOMAIN } from '../utils/domain';
+
 const AuthContext = createContext()
 
 export default AuthContext;
@@ -12,11 +14,14 @@ export const AuthProvider = ({children}) => {
     let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
     let [loading, setLoading] = useState(true)
 
+
+    let [me, setMe] = useState(null)
+
     const navigate = useNavigate();
 
     let loginUser = async (e )=> {
         e.preventDefault()
-        let response = await fetch('http://127.0.0.1:8000/api/token/tokens/', {
+        let response = await fetch(DOMAIN + '/api/token/tokens/', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
@@ -45,7 +50,7 @@ export const AuthProvider = ({children}) => {
 
     let updateToken = async ()=> {
 
-        let response = await fetch('http://127.0.0.1:8000/api/token/tokens/refresh/', {
+        let response = await fetch(DOMAIN + '/api/token/tokens/refresh/', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -67,8 +72,28 @@ export const AuthProvider = ({children}) => {
             setLoading(false)
         }
     }
+    
+    let fetchOwnProfile = async() => {
+        try {
+            const response = await fetch(`${DOMAIN}/api/profile/me/`, {
+              method: 'GET',
+              headers: {
+                  Accept: 'application/json',
+                  'Authorization' : `Bearer ${authTokens.access}`,
+              },
+            });
+            if (!response.ok) {
+              throw new Error(`Error! status: ${response.status}`);
+            }
+            const result = await response.json();
+            setMe(result);
+          } catch (err) {
+            console.log(err.message);
+          }
+    }
 
     let contextData = {
+        me: me,
         user:user,
         authTokens:authTokens,
         loginUser:loginUser,
@@ -80,6 +105,10 @@ export const AuthProvider = ({children}) => {
 
         if(loading){
             updateToken()
+        }
+
+        if(authTokens){
+            fetchOwnProfile();
         }
 
         let fourMinutes = 1000 * 60 * 4
