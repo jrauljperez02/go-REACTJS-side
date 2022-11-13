@@ -1,7 +1,40 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
+import AuthContext from '../../../context/AuthContext'
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap'
+import {DOMAIN} from '../../../utils/domain'
 
 const AddPostModal = (props) => {
+
+    const {authTokens, me} = useContext(AuthContext);
+    const [input, setInput] = useState({
+        user: me.id,
+        description: '',
+        post_image: '',
+    })
+
+    const postData = async(e) => {
+        e.preventDefault();
+        try{
+            const response = await fetch(DOMAIN + '/api/post/posts/',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization' : `Bearer ${authTokens.access}`,
+                        },
+                        body: JSON.stringify(input),
+                    }
+                );
+            if(!response.ok){
+                console.log(response , 'hereeeeeeeeee')
+            }
+            const JSONresponse = await response.json();
+            console.log(JSONresponse)
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+
   return (
     <div className='container'>
         <Modal
@@ -21,33 +54,32 @@ const AddPostModal = (props) => {
                     <Row>
                         <Col sm={6}>
                             <Form>
-                                <Form.Label>Text</Form.Label>
-                                <Form.Control type="text" name="email" required placeholder="text"/>
-                                
-                                <div className='form-check' style={{paddingTop: 15}}>
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    <label className="form-check-label" for="flexCheckDefault">
-                                        Is staff?
-                                    </label>
-                                </div>
-
-                                <div className='form-check'>
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    <label className="form-check-label" for="flexCheckDefault">
-                                        Is superuser?
-                                    </label>
-                                </div>
-
+                                <Form.Label>What's on your mind?</Form.Label>
+                                <Form.Control
+                                    onChange={e => setInput({...input, description: e.target.value})}
+                                    as="textarea" 
+                                    rows={2} 
+                                    placeholder = 'Write here!'/>
 
                                 <Form.Group>
                                     <Button 
-                                        style={{marginTop: 10}}
-                                        variant="primary" 
-                                        type="submit">
+                                        style={{marginTop: 20}}
+                                        variant="dark" 
+                                        type="submit"
+                                        onClick={postData}
+                                        >
+                                        
                                         Publish
                                     </Button>
                                 </Form.Group>
                             </Form>
+                        </Col>
+                        <Col sm={6}>
+                            <Form.Label>Image URL</Form.Label>
+                            <Form.Control 
+                                onChange={e => setInput({...input, post_image: e.target.value})}
+                                placeholder=''
+                                ></Form.Control>
                         </Col>
                     </Row>
                 </Modal.Body>
@@ -55,7 +87,7 @@ const AddPostModal = (props) => {
 
 
                 <Modal.Footer>
-                    <Button variant="danger" onClick={props.onHide}>Close</Button>
+                    <Button variant="danger" onClick={props.close}>Close</Button>
                 </Modal.Footer>
         </Modal>
     </div>

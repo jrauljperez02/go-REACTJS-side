@@ -6,8 +6,6 @@ import CommentBar from './CommentBar'
 const Post = (props) => {
 
    const {post} = props;
-   console.log(post)
-
 
    const textWithQuotes = (description) => (
       <div className="timeline-content">

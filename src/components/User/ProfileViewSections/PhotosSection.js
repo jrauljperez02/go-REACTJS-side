@@ -1,24 +1,27 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import '../../../styles/grid-section.scss'
+import { DOMAIN } from '../../../utils/domain'
+import AuthContext from '../../../context/AuthContext'
+import useApi from '../../../hooks/useApi'
+
 
 const PhotosSection = () => {
-  
-  const pictures = [
-    'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'https://images.pexels.com/photos/3075993/pexels-photo-3075993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/3584283/pexels-photo-3584283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/616838/pexels-photo-616838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 
-  ]
+  const {authTokens} = useContext(AuthContext)
+
+  const {data} = useApi({
+    url : DOMAIN + '/api/post/posts/',
+    access: authTokens.access,
+    method: 'GET',
+ })
+
+ const photosToRender = data.filter(item => {
+  return item.post_image.length > 0
+ })
 
   return (
     <div className='photos-section'>
-      {pictures.map(picture => <img key = {picture} alt= ''  src = {picture}/>)}
+      {photosToRender && photosToRender.map(item => <img key = {item.id} alt= ''  src = {item.post_image}/>)}
     </div>
   )
 }

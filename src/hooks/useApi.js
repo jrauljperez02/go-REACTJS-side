@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 const useApi = (request) => {
   const [loading, setLoading] = useState(true)
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
 
   const fetchApi = () => {
     fetch(request.url, {
