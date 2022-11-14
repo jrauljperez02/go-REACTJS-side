@@ -1,19 +1,6 @@
 body{
     margin: 0;
     height:100vh;
-    display: flex;
-    flex-direction: column;
-}
-button{
-    padding: 10px;
-    border: none;
-    background-color: #002832;
-    border-radius: 6px;
-    color: white;
-}
-button:hover{
-    background-color: #0086ab;
-    transition: 0.5s;
 }
 i{
     margin-right: 10px;

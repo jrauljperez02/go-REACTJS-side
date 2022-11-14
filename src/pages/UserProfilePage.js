@@ -4,9 +4,6 @@ import '../styles/UserProfilePage.css'
 import { DOMAIN } from '../utils/domain';
 import AuthContext from '../context/AuthContext';
 
-
-import MainHeader from '../components/Layout/MainHeader';
-
 import UserFinderList from '../components/User/UserFinderList'
 
 import { useSelector } from 'react-redux';
@@ -14,6 +11,8 @@ import AboutSection from '../components/User/ProfileViewSections/AboutSection';
 import PhotosSection from '../components/User/ProfileViewSections/PhotosSection';
 import VideosSection from '../components/User/ProfileViewSections/VideosSection';
 import UserHeaderProfile from '../components/User/UserHeaderProfile';
+
+import Layout from '../components/Layout/Layout';
 
 const UserProfilePage = () => {
 
@@ -47,14 +46,13 @@ const UserProfilePage = () => {
 
 
         fetchUsers();
-    },[inputNav])
+    },[inputNav, authTokens.access])
 
 
 
     return (
-    <div>
-        <MainHeader/>
-       {(data && inputNav.length > 2)  ?  <UserFinderList users = {data} />: null}
+    <Layout>
+       {(data && inputNav.length > 3)  ?  <UserFinderList users = {data} />: null}
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
@@ -66,7 +64,7 @@ const UserProfilePage = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </Layout>
   )
 }
 

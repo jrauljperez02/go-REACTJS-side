@@ -39,7 +39,6 @@
     height: 120px;
     overflow: hidden;
     position: relative;
-    z-index: 10;
     margin: 0 0 -20px;
     padding: 3px;
     border-radius: 4px;
@@ -538,7 +537,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .timeline img {
     max-width: 100%;
-    display: block
+    display: block;
 }
 
 .timeline-content {

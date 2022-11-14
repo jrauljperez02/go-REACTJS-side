@@ -13,24 +13,26 @@ const AddPostModal = (props) => {
     })
 
     const postData = async(e) => {
-        e.preventDefault();
-        try{
-            const response = await fetch(DOMAIN + '/api/post/posts/',{
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization' : `Bearer ${authTokens.access}`,
-                        },
-                        body: JSON.stringify(input),
-                    }
-                );
-            if(!response.ok){
-                console.log(response , 'hereeeeeeeeee')
+       
+        if(input.description.length > 0 || input.post_image.length > 0){
+            try{
+                const response = await fetch(DOMAIN + '/api/post/posts/',{
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization' : `Bearer ${authTokens.access}`,
+                            },
+                            body: JSON.stringify(input),
+                        }
+                    );
+                if(!response.ok){
+                    console.log(response , 'hereeeeeeeeee')
+                }
+                const JSONresponse = await response.json();
+                console.log(JSONresponse)
+            }catch(error){
+                console.log(error)
             }
-            const JSONresponse = await response.json();
-            console.log(JSONresponse)
-        }catch(error){
-            console.log(error)
         }
     }
 

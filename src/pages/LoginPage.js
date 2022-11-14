@@ -56,7 +56,7 @@ const LoginPage = () => {
                   name = 'password' />
               </div>
 
-              <button className="mb-4 px-5" type = 'submit' color='dark' size='lg'>Login</button><hr/>
+              <button className="btn btn-dark btn-lg btn-block" type = 'submit' color='dark' size='lg'>Login</button><hr/>
 
               <Link to = '/create-user/' style={{
                 color: 'steelblue',

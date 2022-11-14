@@ -107,9 +107,14 @@ const CreateUserPage = () => {
               </div>
               
 
-              <button className="mb-4 px-5" color='dark' size='lg' onClick = {handleSubmit}>Create account</button>
+              <button 
+                className="btn btn-primary" 
+                color='dark' 
+                size='lg' 
+                style={{marginBottom: 20}}
+                onClick = {handleSubmit}>Create account</button>
 
-              <Link to = '/login/' className="btn btn-primary">
+              <Link to = '/login/' className="btn btn-dark">
                 Sig in
               </Link>
 

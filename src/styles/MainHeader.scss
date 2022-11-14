@@ -6,6 +6,9 @@
     align-items: center;
     justify-content: space-between;
     background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     .header-left{
       display: flex;

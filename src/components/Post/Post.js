@@ -18,6 +18,9 @@ const Post = (props) => {
       </div>
    )
 
+   const hour = post.publish_date.split('T')[1].split('.')[0].split(':')[0]
+   const minute = post.publish_date.split('T')[1].split('.')[0].split(':')[1]
+
    const textWithoutQuotes = (description) => (
       <div className="timeline-content">
           <p>
@@ -26,14 +29,13 @@ const Post = (props) => {
        </div>
    )
 
-   console.log()
 
 
   return (
     <li>
       <div className="timeline-time">
          <span className="date">{dateFormat(post.publish_date, "mmmm dS, yyyy")}</span>
-         <span className="time">04:20</span>
+         <span className="time">{hour}:{minute}</span>
       </div>
 
       <div className="timeline-icon">
