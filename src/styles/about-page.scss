@@ -3,15 +3,16 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: 30px;
 
-    color: rgb(93, 93, 93);
+    color: rgb(0, 0, 0);
 }
 
 .left{
     max-width: 100%;
     margin-top: 20px;
 
+
     .friends-section{
-        background-color: rgb(226, 226, 226);
+        background-color: rgb(238, 238, 238);
         border-radius: 10px;
         max-width: 80%;
         padding: 30px 20px 40px;
@@ -20,17 +21,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            p{
-                color: steelblue;
-            }
-            p:hover{
-                cursor: pointer;
-            }
-
-            h4{
-                margin-bottom: 20px;
-            }
+            margin-bottom: 20px;
         }
 
         .friends-container-images{

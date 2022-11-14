@@ -18,9 +18,11 @@ const AboutSection = () => {
     <div className='container about'>
       <div className='left'>
         <div className='friends-section'>
+
+
           <div className='friends-container-text'>
             <h4>Friends</h4>
-            <button className='btn btn-dark'>See all friends</button>
+            <button className='btn btn-outline-dark'>See all friends</button>
           </div>
 
           <div className='friends-container-images'>

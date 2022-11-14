@@ -1,8 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import AuthContext from '../context/AuthContext'
 
 const UserInput = () => {
-  return (
-      <input placeholder={'Search users 🔍'}/>
+
+
+  const {setInputNav} = useContext( AuthContext)
+
+  return ( 
+      <input 
+        onChange={e => setInputNav(e.target.value)}
+        name = 'text'
+        placeholder={'Search users 🔍'}
+        />
   )
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import PostHeader from './PostHeader'
 import ReactionIcons from './ReactionIcons'
 import CommentBar from './CommentBar'
+import dateFormat from 'dateformat';
 
 const Post = (props) => {
 
@@ -25,11 +26,13 @@ const Post = (props) => {
        </div>
    )
 
+   console.log()
+
 
   return (
     <li>
       <div className="timeline-time">
-         <span className="date">{post.publish_date}</span>
+         <span className="date">{dateFormat(post.publish_date, "mmmm dS, yyyy")}</span>
          <span className="time">04:20</span>
       </div>
 

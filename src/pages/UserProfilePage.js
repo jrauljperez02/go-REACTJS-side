@@ -1,7 +1,6 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Posts from '../components/User/ProfileViewSections/Posts';
 import '../styles/UserProfilePage.css'
-import useApi from '../hooks/useApi';
 import { DOMAIN } from '../utils/domain';
 import AuthContext from '../context/AuthContext';
 
@@ -22,20 +21,40 @@ const UserProfilePage = () => {
     const showAbout = useSelector(state => state.navbar.showAboutSection)
     const showPhotos = useSelector(state => state.navbar.showPhotosSection)
     const showVideos = useSelector(state => state.navbar.showVideosSection)
+    const [data, setData] = useState([])
+
+    const {authTokens,inputNav } = useContext(AuthContext)
+
+    useEffect(() => {
+        const fetchUsers = async(e) => {
+            try{
+                const response = await fetch(DOMAIN + `/api/user/users/?name__icontains=${inputNav}`,{
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                        'Authorization' : `Bearer ${authTokens.access}`,
+                    },
+                })
+                if(!response.ok){
+                    console.log(response);
+                }
+                const JSONresponse = await response.json()
+                setData(JSONresponse)
+            }catch(error){
+                console.log(error)
+            }
+        }
 
 
-    const {authTokens} = useContext(AuthContext)
+        fetchUsers();
+    },[inputNav])
 
-    const {data} = useApi({
-        url: DOMAIN + `/api/user/users/?name__icontains=${''}`,
-        access: authTokens.access
-    })
-    
+
 
     return (
     <div>
         <MainHeader/>
-       {data ?  <UserFinderList users = {data} />: null}
+       {(data && inputNav.length > 2)  ?  <UserFinderList users = {data} />: null}
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
