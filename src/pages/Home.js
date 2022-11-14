@@ -6,7 +6,7 @@ import PostContext from '../context/PostContext'
 
 const Home = () => {
 
-  const { allPosts} = useContext(PostContext)
+  const {allPosts} = useContext(PostContext)
 
 
   return (

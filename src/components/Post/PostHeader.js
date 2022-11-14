@@ -3,15 +3,15 @@ import UserContext from '../../context/UserContext';
 
 const PostHeader = (props) => {
 
-    const {me} = useContext(UserContext);
+    const {me, allUsers} = useContext(UserContext);
     const {user} = props;
 
   return (
     <div className="timeline-header">
         {me && 
             <React.Fragment>
-                <span className="userimage"><img src={me.profile_picture} alt=""/></span>
-                <span className="username post-username">{user}</span>
+                <span className="userimage"><img src={allUsers[user].profile_picture} alt=""/></span>
+                <span className="username post-username">{allUsers[user].name}</span>
             </React.Fragment>    
         }
 
