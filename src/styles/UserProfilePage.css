@@ -617,7 +617,8 @@ select.form-control:not([size]):not([multiple]) {
     width: 34px;
     height: 34px;
     overflow: hidden;
-    border-radius: 30px
+    border-radius: 30px;
+    z-index: 2;
 }
 
 .timeline-comment-box .user img {

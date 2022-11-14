@@ -13,7 +13,7 @@ const CommentBar = () => {
           <div className="input-group">
             <input type="text" className="form-control rounded-corner" placeholder="Write a comment..."/>
             <span className="input-group-btn p-l-10">
-              <button className="btn btn-dark f-s-12 rounded-corner" type="button">Comment</button>
+              <button className="btn btn-dark" type="button">Comment</button>
             </span>
           </div>
         </form>

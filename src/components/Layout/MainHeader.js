@@ -10,7 +10,7 @@ import AuthContext from '../../context/AuthContext'
 
 const MainHeader = () => {
 
-  const {logoutUser} = useContext(AuthContext)
+  const {logoutUser, me} = useContext(AuthContext)
 
   return (
     <div className='header'>
@@ -25,8 +25,8 @@ const MainHeader = () => {
       <nav>
         <ul>
           <li><AiOutlineSearch/></li>
-          <li>Feed</li>
-          <li>Profile</li>
+          <Link to={'/'}>Feed</Link>
+          <Link to={`/profile/${me.username}/`}>Profile</Link>
           <button onClick={logoutUser} className = 'btn btn-outline-light'>Logout</button>
         </ul>
       </nav>
