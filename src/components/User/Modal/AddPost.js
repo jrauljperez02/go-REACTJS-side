@@ -1,11 +1,14 @@
 import React, {useContext, useState} from 'react'
 import AuthContext from '../../../context/AuthContext'
+import UserContext from '../../../context/UserContext'
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap'
 import {DOMAIN} from '../../../utils/domain'
 
 const AddPostModal = (props) => {
 
-    const {authTokens, me} = useContext(AuthContext);
+    const {authTokens} = useContext(AuthContext);
+    const {me} = useContext(UserContext);
+    
     const [input, setInput] = useState({
         user: me.id,
         description: '',

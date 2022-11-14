@@ -1,16 +1,17 @@
 import React,{useContext} from 'react'
-import AuthContext from '../../context/AuthContext'
+import UserContext from '../../context/UserContext';
 
-const PostHeader = () => {
+const PostHeader = (props) => {
 
-    const {me} = useContext(AuthContext)
+    const {me} = useContext(UserContext);
+    const {user} = props;
 
   return (
     <div className="timeline-header">
         {me && 
             <React.Fragment>
                 <span className="userimage"><img src={me.profile_picture} alt=""/></span>
-                <span className="username post-username">{me.name}</span>
+                <span className="username post-username">{user}</span>
             </React.Fragment>    
         }
 

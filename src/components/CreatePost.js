@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import AuthContext from '../context/AuthContext'
+import UserContext from '../context/UserContext'
 import '../styles/create-post.scss'
 import AddPostModal from './User/Modal/AddPost'
 
@@ -8,7 +8,7 @@ const CreatePost = () => {
   const [addModalShow, setAddModalShow] = useState(false)
   let addModalClose=()=>setAddModalShow(false);
 
-  const {me} = useContext(AuthContext)
+  const {me} = useContext(UserContext)
 
   return (
     <div className='create-post'>

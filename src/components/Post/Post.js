@@ -30,7 +30,6 @@ const Post = (props) => {
    )
 
 
-
   return (
     <li>
       <div className="timeline-time">
@@ -43,7 +42,7 @@ const Post = (props) => {
       </div>
 
       <div className="timeline-body">
-         <PostHeader/>
+         <PostHeader user = {post.user}/>
          {post.post_image.length === 0 ? textWithQuotes(post.description): textWithoutQuotes(post.description)}
          <img alt='' src={post.post_image} style = {{marginBottom: 20, borderRadius: 10}} />
          <div className="timeline-likes">

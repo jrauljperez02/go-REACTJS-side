@@ -13,13 +13,10 @@ export const AuthProvider = ({children}) => {
     let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
     let [loading, setLoading] = useState(true)
-    let [me, setMe] = useState(null)
-    
-    const [inputNav, setInputNav] = useState('')
 
     const navigate = useNavigate();
 
-    let loginUser = async (e )=> {
+    let loginUser = async (e)=> {
         e.preventDefault()
         let response = await fetch(DOMAIN + '/api/token/tokens/', {
             method:'POST',
@@ -72,32 +69,10 @@ export const AuthProvider = ({children}) => {
             setLoading(false)
         }
     }
-    
-    let fetchOwnProfile = async() => {
-        try {
-            const response = await fetch(`${DOMAIN}/api/profile/me/`, {
-              method: 'GET',
-              headers: {
-                  Accept: 'application/json',
-                  'Authorization' : `Bearer ${authTokens.access}`,
-              },
-            });
-            if (!response.ok) {
-              throw new Error(`Error! status: ${response.status}`);
-            }
-            const result = await response.json();
-            setMe(result);
-          } catch (err) {
-            console.log(err.message);
-          }
-    }
 
     let contextData = {
-        me: me,
         user:user,
         authTokens:authTokens,
-        inputNav: inputNav,
-        setInputNav:setInputNav,
         loginUser:loginUser,
         logoutUser:logoutUser,
     }
@@ -109,9 +84,6 @@ export const AuthProvider = ({children}) => {
             updateToken()
         }
 
-        if(authTokens){
-            fetchOwnProfile();
-        }
 
         let fourMinutes = 1000 * 60 * 4
 

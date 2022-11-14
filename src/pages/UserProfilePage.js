@@ -1,12 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react'
-import Posts from '../components/User/ProfileViewSections/Posts';
+import Posts from '../components/Post/Posts';
 import '../styles/UserProfilePage.css'
 import { DOMAIN } from '../utils/domain';
 import AuthContext from '../context/AuthContext';
+import InputContext from '../context/InputContext';
 
 import UserFinderList from '../components/User/UserFinderList'
 
 import { useSelector } from 'react-redux';
+import useApi from '../hooks/useApi';
 import AboutSection from '../components/User/ProfileViewSections/AboutSection';
 import PhotosSection from '../components/User/ProfileViewSections/PhotosSection';
 import VideosSection from '../components/User/ProfileViewSections/VideosSection';
@@ -20,9 +22,10 @@ const UserProfilePage = () => {
     const showAbout = useSelector(state => state.navbar.showAboutSection)
     const showPhotos = useSelector(state => state.navbar.showPhotosSection)
     const showVideos = useSelector(state => state.navbar.showVideosSection)
-    const [data, setData] = useState([])
+    const [users, setUsers] = useState([])
 
-    const {authTokens,inputNav } = useContext(AuthContext)
+    const {authTokens } = useContext(AuthContext)
+    const {inputNav} = useContext(InputContext)
 
     useEffect(() => {
         const fetchUsers = async(e) => {
@@ -38,7 +41,7 @@ const UserProfilePage = () => {
                     console.log(response);
                 }
                 const JSONresponse = await response.json()
-                setData(JSONresponse)
+                setUsers(JSONresponse)
             }catch(error){
                 console.log(error)
             }
@@ -49,15 +52,21 @@ const UserProfilePage = () => {
     },[inputNav, authTokens.access])
 
 
+    const {data} = useApi({
+        url : DOMAIN + '/api/post/posts/',
+        access: authTokens.access,
+        method: 'GET',
+    })
+
 
     return (
     <Layout>
-       {(data && inputNav.length > 3)  ?  <UserFinderList users = {data} />: null}
+       {(data && inputNav.length > 3)  ?  <UserFinderList users = {users} />: null}
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
                     <UserHeaderProfile/>
-                    {showPosts && <Posts/>}
+                    {showPosts && <Posts data = {data}/>}
                     {showAbout && <AboutSection/>}
                     {showPhotos && <PhotosSection/>}
                     {showVideos && <VideosSection/>}

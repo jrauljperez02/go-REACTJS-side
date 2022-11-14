@@ -1,10 +1,12 @@
 import React, {useContext} from 'react'
 import Navbar from './Navbar'
-import AuthContext from '../../context/AuthContext'
+import UserContext from '../../context/UserContext'
 
 const UserHeaderProfile = () => {
 
-    const {me} = useContext(AuthContext);
+    const {me} = useContext(UserContext);
+
+    
 
   return (
     <div id="content" className="content content-full-width">

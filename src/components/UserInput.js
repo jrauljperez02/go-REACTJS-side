@@ -1,10 +1,9 @@
 import React, {useContext} from 'react'
-import AuthContext from '../context/AuthContext'
+import InputContext from '../context/InputContext'
 
 const UserInput = () => {
 
-
-  const {setInputNav} = useContext( AuthContext)
+  const {setInputNav} = useContext(InputContext)
 
   return ( 
       <input 

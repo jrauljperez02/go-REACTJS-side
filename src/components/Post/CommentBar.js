@@ -1,9 +1,9 @@
 import React, {useContext} from 'react'
-import AuthContext from '../../context/AuthContext'
+import UserContext from '../../context/UserContext'
 
 const CommentBar = () => {
 
-  const {me} = useContext(AuthContext)
+  const {me} = useContext(UserContext)
 
   return (
     <div className="timeline-comment-box">

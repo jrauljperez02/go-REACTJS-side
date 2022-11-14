@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom'
 import {AiOutlineSearch} from 'react-icons/ai'
 import UserInput from '../UserInput'
 import AuthContext from '../../context/AuthContext'
+import UserContext from '../../context/UserContext'
 
 
 const MainHeader = () => {
 
-  const {logoutUser, me} = useContext(AuthContext)
+  const {logoutUser} = useContext(AuthContext)
+  const {me} = useContext(UserContext)
 
   return (
     <div className='header'>
