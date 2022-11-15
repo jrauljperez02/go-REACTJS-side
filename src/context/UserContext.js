@@ -12,6 +12,7 @@ export const UserProvider = ({children}) => {
     const {authTokens} = useContext(AuthContext);
     let [me, setMe] = useState('');
     const [allUsers, setAllUsers] = useState([])
+    const [allUsersAsArray,setAllUsersAsArray] = useState([])
 
     let fetchProfile = async() => {
         try {
@@ -45,6 +46,7 @@ export const UserProvider = ({children}) => {
               throw new Error(`Error! status: ${response.status}`);
             }
             const result = await response.json();
+            setAllUsersAsArray(result)
             const resultInObject = convertArrayToObject(result, 'id')
             setAllUsers(resultInObject);
           } catch (err) {
@@ -56,6 +58,7 @@ export const UserProvider = ({children}) => {
     let contextData = {
         me,
         allUsers,
+        allUsersAsArray,
     }
 
     useEffect(() => {

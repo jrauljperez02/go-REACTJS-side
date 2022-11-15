@@ -6,13 +6,10 @@ import { Link } from 'react-router-dom'
 import {AiOutlineSearch} from 'react-icons/ai'
 import UserInput from '../UserInput'
 import AuthContext from '../../context/AuthContext'
-import UserContext from '../../context/UserContext'
-
 
 const MainHeader = () => {
 
   const {logoutUser} = useContext(AuthContext)
-  const {me} = useContext(UserContext)
 
   return (
     <div className='header'>
@@ -28,7 +25,7 @@ const MainHeader = () => {
         <ul>
           <li><AiOutlineSearch/></li>
           <Link to={'/'}>Feed</Link>
-          <Link to={`/profile/${me.username}/`}>Profile</Link>
+          <Link to={`/me/`}>Profile</Link>
           <button onClick={logoutUser} className = 'btn btn-outline-light'>Logout</button>
         </ul>
       </nav>

@@ -10,11 +10,9 @@ const CommentBar = () => {
       {me && <div className="user"><img src={me.profile_picture} alt='img'/></div>}
       <div className="input">
         <form>
-          <div className="input-group">
+          <div style={{display: 'flex'}}>
             <input type="text" className="form-control rounded-corner" placeholder="Write a comment..."/>
-            <span className="input-group-btn p-l-10">
-              <button className="btn btn-dark" type="button">Comment</button>
-            </span>
+            <button className="btn btn-dark">Comment</button>
           </div>
         </form>
       </div>
