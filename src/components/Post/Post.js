@@ -43,7 +43,7 @@ const Post = (props) => {
 
       <div className="timeline-body">
          <PostHeader user = {post.user}/>
-         {post.post_image === null ? textWithQuotes(post.description): textWithoutQuotes(post.description)}
+         {post.description !== null ? textWithQuotes(post.description): textWithoutQuotes(post.description)}
          <img alt='' src={post.post_image} style = {{marginBottom: 20, borderRadius: 10}} />
          <div className="timeline-likes">
             <div className="stats-right">

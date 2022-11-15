@@ -6,10 +6,9 @@ const PostHeader = (props) => {
 
     const {allUsers} = useContext(UserContext);
     const {user} = props;
-    
   return (
     <div className="timeline-header">
-      {!allUsers ? null : (
+      {allUsers[user] === undefined ? null : (
         <Link to = {`/user/${allUsers[user].username}/`}>
           {(allUsers && user) ? <span className="userimage"><img src={allUsers[user].profile_picture} alt=""/></span>: null}
           {(allUsers && user) ? <span className="username post-username">{allUsers[user].name}</span>: null}
