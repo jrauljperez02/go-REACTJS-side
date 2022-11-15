@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react'
-import UserContext from '../context/UserContext'
-import '../styles/create-post.scss'
-import AddPostModal from './User/Modal/AddPost'
+import UserContext from '../../context/UserContext'
+import '../../styles/create-post.scss'
+import AddPostModal from '../modals/AddPost'
 
 const CreatePost = () => {
 

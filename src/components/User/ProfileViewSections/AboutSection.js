@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import { Link } from 'react-router-dom'
 import AuthContext from '../../../context/AuthContext'
 import useApi from '../../../hooks/useApi'
 import '../../../styles/about-page.scss'
@@ -28,10 +29,10 @@ const AboutSection = () => {
           <div className='friends-container-images'>
             {!data ? null: (
               data.map(friend => (
-                <div  key = {friend.id}t>
+                <Link to = {`/user/${friend.username}/`}  key = {friend.id}t>
                   <img src= {friend.profile_picture} alt = '' />
                   <p>{friend.name}</p>
-                </div>
+                </Link>
               ))
             )}
           </div>

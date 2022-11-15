@@ -3,8 +3,9 @@ import LoginPage from './pages/LoginPage';
 
 import {  Route, Routes } from 'react-router-dom';
 import CreateUserPage from './pages/CreateUserPage';
-import  UserProfilePage from './pages/UserProfilePage'
+import OwnProfile from './pages/OwnProfile';
 import Home from './pages/Home'
+import UserProfile from './pages/UserProfile';
 
 const App = () => {
 
@@ -13,8 +14,9 @@ const App = () => {
       <Routes>
         <Route path='login' element = {<LoginPage/>}/>
         <Route path='create-user' element = {<CreateUserPage/>} />
-        <Route path='/me/' element = {<UserProfilePage/>}/>
+        <Route path='/me/' element = {<OwnProfile/>}/>
         <Route path='/' element = {<Home/>} />
+        <Route path='/user/:username/' element = {<UserProfile/>} />
       </Routes>
     </div>
   )

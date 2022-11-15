@@ -1,22 +1,22 @@
 import React, {useContext, useState} from 'react'
-import AuthContext from '../../../context/AuthContext'
-import UserContext from '../../../context/UserContext'
+import AuthContext from '../../context/AuthContext'
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap'
-import {DOMAIN} from '../../../utils/domain'
+import {DOMAIN} from '../../utils/domain'
 
 const AddPostModal = (props) => {
 
-    const {authTokens} = useContext(AuthContext);
-    const {me} = useContext(UserContext);
+    const {authTokens, user} = useContext(AuthContext);
     
     const [input, setInput] = useState({
-        user: me.id,
+        user: user.user_id,
         description: '',
         post_image: '',
     })
 
     const postData = async(e) => {
-       
+        e.preventDefault();
+
+        console.log(input)
         if(input.description.length > 0 || input.post_image.length > 0){
             try{
                 const response = await fetch(DOMAIN + '/api/post/posts/',{
@@ -63,7 +63,7 @@ const AddPostModal = (props) => {
                                 <Form.Control
                                     onChange={e => setInput({...input, description: e.target.value})}
                                     as="textarea" 
-                                    rows={2} 
+                                    rows={1} 
                                     placeholder = 'Write here!'/>
 
                                 <Form.Group>

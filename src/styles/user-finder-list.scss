@@ -15,6 +15,7 @@
     color: rgb(93, 92, 92);
     border-radius: 10px;
     padding: 13px;
+    border: 1.5px solid #749693;
 }
 .user-found-item img{
     max-width: 80px;
@@ -28,4 +29,11 @@
 
 .user-found-item img{
     border-radius: 20px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+    transition: 0.5s;
 }

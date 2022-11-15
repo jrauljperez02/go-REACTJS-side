@@ -35,7 +35,7 @@ export const UserProvider = ({children}) => {
 
     const fetchAllUsers = async() => {
         try {
-            const response = await fetch(`${DOMAIN}/api/user/all-users/`, {
+            const response = await fetch(`${DOMAIN}/api/user/users/`, {
               method: 'GET',
               headers: {
                   Accept: 'application/json',

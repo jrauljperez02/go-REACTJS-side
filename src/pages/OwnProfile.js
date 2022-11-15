@@ -16,7 +16,7 @@ import UserHeaderProfile from '../components/User/UserHeaderProfile';
 
 import Layout from '../components/Layout/Layout';
 
-const UserProfilePage = () => {
+const OwnProfile = () => {
 
     const showPosts = useSelector(state => state.navbar.showPostsSection);
     const showAbout = useSelector(state => state.navbar.showAboutSection)
@@ -77,4 +77,4 @@ const UserProfilePage = () => {
   )
 }
 
-export default UserProfilePage
+export default OwnProfile
