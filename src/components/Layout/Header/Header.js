@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -9,10 +9,47 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
 import AuthContext from '../../../context/AuthContext'
+import InputContext from '../../../context/InputContext'
+
+import UserFinderList from '../../User/UserFinderList';
+import { DOMAIN } from '../../../utils/domain';
+
+import Loading from '../../Loading'
 
 function Header() {
 
-  const {logoutUser} = useContext(AuthContext)
+  const {logoutUser, authTokens} = useContext(AuthContext);
+  const {inputNav, setInputNav} = useContext(InputContext);
+
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+
+    const fetchUsers = async() => {
+      try{
+
+        const response = await fetch(`${DOMAIN}/api/user/users/?username=&name=${inputNav}`,{
+          method: 'GET',
+          headers: {
+              Accept: 'application/json',
+              'Authorization' : `Bearer ${authTokens.access}`,
+          },
+        })
+        if(!response.ok){
+          console.log(response);
+        }
+        const JSONresponse = await response.json();
+        setData(JSONresponse)
+
+      }catch(error){
+        console.log(error)
+      }
+    }
+
+    fetchUsers();
+
+  },[inputNav])
+  
 
   return (
     <div className='navbar'>
@@ -62,12 +99,16 @@ function Header() {
                 <Form className="d-flex" style={{marginTop: 20}}>
                   <Form.Control
                     type="search"
-                    placeholder="Search"
+                    placeholder="Search users"
                     className="me-2"
                     aria-label="Search"
+                    onChange={e => setInputNav(e.target.value)}
                   />
-                  <Button variant="btn btn-outline-primary">Search</Button>
+                  <Button 
+                    variant="btn btn-outline-primary">Search</Button>
+                  
                 </Form>
+                {(data.length > 0 && inputNav.length > 3) ? <UserFinderList users = {data}/>: <Loading/>}
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

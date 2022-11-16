@@ -1,13 +1,13 @@
 import React from 'react'
 import UserFinderItem from './UserFinderItem';
-import '../../styles/user-finder-list.scss'
+import '../../styles/UserFinder.scss'
 
 const UserFinderList = (props) => {
 
   const {users} = props;
 
   return (
-    <div className='finder'>
+    <div className='user-finder-list'>
       {users.map(user => (
         <UserFinderItem key = {user.id} data = {user}/>
       ))}

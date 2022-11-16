@@ -1,0 +1,26 @@
+.user-finder-list{
+    max-width: 100%;
+    margin-top: 20px;
+
+
+    .user-finder-item{
+        display: flex;
+        align-items: center;
+        margin: 15px 0px;
+
+
+        img{
+            max-width: 20%;
+            border-radius: 5px;
+            margin-left: 12px;
+        }
+
+
+        .user-finder-item-text p{
+            margin: 0;
+            line-height: 20px;
+            margin-left: 10px;
+        }
+
+    }
+}

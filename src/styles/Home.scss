@@ -32,12 +32,18 @@
     }
 
     .following{
-        max-width: 100%;
+
+        max-width: 20%;
         margin-top: 70px;
         position: fixed;
        
         h1{
             font-size: 20px;
+        }
+
+        a:hover{
+            color: #000000;
+            transition: 0.5s;
         }
     }
 }
