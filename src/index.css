@@ -8,3 +8,10 @@ i{
 .post-username{
     margin-right: 20px;
 }
+
+.navbar{
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+}

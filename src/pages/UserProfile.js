@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 
 import PostContext from '../context/PostContext';
 import Layout from '../components/Layout/Layout'
-import UserHeaderProfile from '../components/User/UserHeaderProfile'
+import UserHeader from '../components/User/UserHeader';
 
 import { useSelector } from 'react-redux';
 
@@ -26,9 +26,7 @@ const UserProfile = () => {
     <Layout>
         <div className='container'>
           <div className='col-md-12'>
-              <UserHeaderProfile/>
-
-
+              <UserHeader/>
               {showPosts && <Posts data = {allPosts}/>}
               {showAbout && <AboutSection/>}
               {showPhotos && <PhotosSection/>}

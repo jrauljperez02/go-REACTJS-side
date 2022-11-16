@@ -7,6 +7,7 @@ const UserInput = () => {
 
   return ( 
       <input 
+        style={{position: 'sticky'}}
         onChange={e => setInputNav(e.target.value)}
         name = 'text'
         placeholder={'Search users 🔍'}

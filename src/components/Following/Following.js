@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import UserContext from '../../context/UserContext'
 import FollowingUser from './FollowingUser'
+import '../../styles/Following.scss'
 
 const Following = () => {
 
@@ -13,7 +14,6 @@ const Following = () => {
         {allUsersAsArray.map(user => <FollowingUser 
           data = {user}
           key = {user.id}/>)}
-
     </div>
   )
 }

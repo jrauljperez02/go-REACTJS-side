@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import '../../../styles/grid-section.scss'
+import '../../../styles/Grid-styles.scss'
 import { DOMAIN } from '../../../utils/domain'
 import AuthContext from '../../../context/AuthContext'
 import useApi from '../../../hooks/useApi'
@@ -16,7 +16,7 @@ const PhotosSection = () => {
  })
 
  const photosToRender = data.filter(item => {
-  return item.post_image.length > 0
+  return item.post_image !== null
  })
 
   return (

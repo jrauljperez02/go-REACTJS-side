@@ -6,14 +6,36 @@
     grid-template-columns: 1fr 5fr 1fr;
 
 
+    .grid-left{
+
+        .menu{
+            margin-top: 70px;
+            position: fixed;
+
+            .menu-item{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 20px;
+                background-color: #000000;
+                color: white;
+                box-shadow: 8px 8px 8px #ade0db;
+                padding: 10px 120px 10px 30px;
+                
+                border-radius: 5px;
+            }
+
+            h1{
+                font-size: 20px;
+            }
+        }
+    }
 
     .following{
         max-width: 100%;
-        margin-top: 30px;
+        margin-top: 70px;
         position: fixed;
        
-
-
         h1{
             font-size: 20px;
         }

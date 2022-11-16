@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import AuthContext from '../../../context/AuthContext'
 import useApi from '../../../hooks/useApi'
-import '../../../styles/about-page.scss'
+import '../../../styles/About-section.scss'
 import {DOMAIN} from '../../../utils/domain'
 
 

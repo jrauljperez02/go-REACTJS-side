@@ -4,6 +4,8 @@ import ReactionIcons from './ReactionIcons'
 import CommentBar from './CommentBar'
 import dateFormat from 'dateformat';
 
+import PostSlider from './slider/PostSlider';
+
 const Post = (props) => {
 
    const {post} = props;
@@ -44,7 +46,7 @@ const Post = (props) => {
       <div className="timeline-body">
          <PostHeader user = {post.user}/>
          {post.description !== null ? textWithQuotes(post.description): textWithoutQuotes(post.description)}
-         <img alt='' src={post.post_image} style = {{marginBottom: 20, borderRadius: 10}} />
+         <PostSlider/>
          <div className="timeline-likes">
             <div className="stats-right">
                <span className="stats-text">259 Shares</span>

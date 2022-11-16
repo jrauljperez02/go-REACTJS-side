@@ -1,13 +1,20 @@
 import React,{useContext} from 'react'
 import { Link } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
+import OptionsPostButton from './buttons/OptionsPostButton';
 
 const PostHeader = (props) => {
 
     const {allUsers} = useContext(UserContext);
     const {user} = props;
   return (
-    <div className="timeline-header">
+    <div className="timeline-header" style={
+        {
+          display:'flex', 
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }
+      }>
       {allUsers[user] === undefined ? null : (
         <Link to = {`/user/${allUsers[user].username}/`}>
           {(allUsers && user) ? <span className="userimage"><img src={allUsers[user].profile_picture} alt=""/></span>: null}
@@ -15,8 +22,8 @@ const PostHeader = (props) => {
       </Link>    
       )}
 
-      
-        <span className="pull-right text-muted">18 Views</span>
+      <OptionsPostButton/>
+        
     </div>
   )
 }

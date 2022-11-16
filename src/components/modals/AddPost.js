@@ -10,33 +10,36 @@ const AddPostModal = (props) => {
     const [input, setInput] = useState({
         user: user.user_id,
         description: '',
-        post_image: '',
     })
+
+    const inpFile = document.getElementById('inpFile');
 
     const postData = async(e) => {
         e.preventDefault();
 
-        console.log(input)
-        if(input.description.length > 0 || input.post_image.length > 0){
-            try{
-                const response = await fetch(DOMAIN + '/api/post/posts/',{
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization' : `Bearer ${authTokens.access}`,
-                            },
-                            body: JSON.stringify(input),
-                        }
-                    );
-                if(!response.ok){
-                    console.log(response , 'hereeeeeeeeee')
-                }
-                const JSONresponse = await response.json();
-                console.log(JSONresponse)
-            }catch(error){
-                console.log(error)
-            }
-        }
+        const formData = new FormData();
+        formData.append('inpFile',inpFile.files[0])
+        console.log(inpFile.files)
+        // if(input.description.length > 0 || input.post_image.length > 0){
+        //     try{
+        //         const response = await fetch(DOMAIN + '/api/post/posts/',{
+        //                     method: 'POST',
+        //                     headers: {
+        //                         'Content-Type': 'application/json',
+        //                         'Authorization' : `Bearer ${authTokens.access}`,
+        //                     },
+        //                     body: JSON.stringify(input),
+        //                 }
+        //             );
+        //         if(!response.ok){
+        //             console.log(response , 'hereeeeeeeeee')
+        //         }
+        //         const JSONresponse = await response.json();
+        //         console.log(JSONresponse)
+        //     }catch(error){
+        //         console.log(error)
+        //     }
+        // }
     }
 
 
@@ -80,9 +83,10 @@ const AddPostModal = (props) => {
                             </Form>
                         </Col>
                         <Col sm={6}>
-                            <Form.Label>Image URL</Form.Label>
+                            <Form.Label>Image</Form.Label>
                             <Form.Control 
-                                onChange={e => setInput({...input, post_image: e.target.value})}
+                                id = 'inpFile'
+                                type = 'file'
                                 placeholder=''
                                 ></Form.Control>
                         </Col>
