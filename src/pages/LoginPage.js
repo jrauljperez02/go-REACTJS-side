@@ -37,7 +37,7 @@ const LoginPage = () => {
             </div>
 
             <form onSubmit={loginUser}>
-              <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Login to your account</h5>
+              <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Iniciar sesion</h5>
 
               <div className='input-group mb-3 input-names'>
                 <input 
@@ -52,16 +52,16 @@ const LoginPage = () => {
                 <input 
                   type="password" 
                   className="form-control" 
-                  placeholder='Password'
+                  placeholder='Contraseña'
                   name = 'password' />
               </div>
 
-              <button className="btn btn-dark btn-lg btn-block" type = 'submit' color='dark' size='lg'>Login</button><hr/>
+              <button className="btn btn-dark btn-lg btn-block" type = 'submit' color='dark' size='lg'>Accede</button><hr/>
 
               <Link to = '/create-user/' style={{
                 color: 'steelblue',
                 textDecoration: 'none'
-              }}>Don't you have an account? - Sign up!</Link>
+              }}>No tienes cuenta? - Registrate ahora!</Link>
             </form>
 
           </MDBCardBody>

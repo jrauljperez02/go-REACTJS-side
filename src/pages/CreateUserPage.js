@@ -75,10 +75,10 @@ const CreateUserPage = () => {
                 <img src={logo} style = {{maxWidth: '100%'}} alt='logo'/>
               </div>
 
-              <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Create account</h5>
+              <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Crea una cuenta!</h5>
 
               <div className='input-group mb-3 input-names'>
-                <input type="text" className="form-control" placeholder="Name" aria-describedby="basic-addon1" onChange = {e => setInput({...input, name: e.target.value})}/>
+                <input type="text" className="form-control" placeholder="Nombre" aria-describedby="basic-addon1" onChange = {e => setInput({...input, name: e.target.value})}/>
               </div>
 
               <div className='input-group mb-3 input-names'>
@@ -91,13 +91,13 @@ const CreateUserPage = () => {
               </div>
 
               <div className='input-group mb-3 input-names'>
-                <input type="password" className="form-control" style = {isPasswordOK ? null : {borderColor: 'red', backgroundColor: '#FFB5A6'}} placeholder="Password" aria-describedby="basic-addon1" onChange = {e => setInput({...input, password: e.target.value})}/>
-                <input type="password" className="form-control" style = {isPasswordOK ? null : {borderColor: 'red', backgroundColor: '#FFB5A6'}} placeholder="Confirm password"  aria-describedby="basic-addon1" onChange = {e =>  setPassword2(e.target.value)}/>
+                <input type="password" className="form-control" style = {isPasswordOK ? null : {borderColor: 'red', backgroundColor: '#FFB5A6'}} placeholder="Contraseña" aria-describedby="basic-addon1" onChange = {e => setInput({...input, password: e.target.value})}/>
+                <input type="password" className="form-control" style = {isPasswordOK ? null : {borderColor: 'red', backgroundColor: '#FFB5A6'}} placeholder="Confirma contraseña"  aria-describedby="basic-addon1" onChange = {e =>  setPassword2(e.target.value)}/>
               </div>
 
               <div className='input-group mb-3 input-names form-floating'>
                 <input type="date" className="form-control" id="floatingInputValue" onChange = {e => setInput({...input, birthday: e.target.value})}/>
-                <label htmlFor ="floatingInputValue">Birhday</label>
+                <label htmlFor ="floatingInputValue">Fecha de nacimiento</label>
               </div>
 
               <div style={{paddingBottom: 20}}>
@@ -112,10 +112,10 @@ const CreateUserPage = () => {
                 color='dark' 
                 size='lg' 
                 style={{marginBottom: 20}}
-                onClick = {handleSubmit}>Create account</button>
+                onClick = {handleSubmit}>Crea tu cuenta!</button>
 
               <Link to = '/login/' className="btn btn-dark">
-                Sig in
+                Inicia sesion
               </Link>
 
             </MDBCardBody>

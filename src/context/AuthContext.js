@@ -18,6 +18,9 @@ export const AuthProvider = ({children}) => {
 
     let loginUser = async (e)=> {
         e.preventDefault()
+
+
+
         let response = await fetch(DOMAIN + '/api/token/tokens/', {
             method:'POST',
             headers:{
@@ -34,7 +37,10 @@ export const AuthProvider = ({children}) => {
         }else{
             alert('Something went wrong!')
         }
+
     }
+
+
 
 
     let logoutUser = () => {

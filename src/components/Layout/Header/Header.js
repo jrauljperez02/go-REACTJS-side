@@ -15,6 +15,7 @@ import UserFinderList from '../../User/UserFinderList';
 import { DOMAIN } from '../../../utils/domain';
 
 import Loading from '../../Loading'
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
 
@@ -22,6 +23,9 @@ function Header() {
   const {inputNav, setInputNav} = useContext(InputContext);
 
   const [data, setData] = useState([])
+
+  const navigate = useNavigate();
+
 
   useEffect(() => {
 
@@ -64,7 +68,7 @@ function Header() {
             <Navbar.Brand style = {{color: 'white'}} href="/"><h1>Go</h1></Navbar.Brand>
             <Navbar.Toggle 
                 aria-controls={`offcanvasNavbar-expand-${expand}`} 
-                className = 'bg-light'
+                className="navbar-dark bg-dark"
                 />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -73,15 +77,25 @@ function Header() {
               
             >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Menu
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} onClick = {() => {navigate(`/`)}}>
+                  Inicio
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/">Inicio</Nav.Link>
-                  <Nav.Link href="/me/">Perfil</Nav.Link>
+                  <Nav.Link href="/">Perfil</Nav.Link>
                   <Nav.Link onClick={logoutUser} href="/login/">Cerrar sesion</Nav.Link>
+
+
+                  <NavDropdown
+                    title="Editar estado"
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
+                    <NavDropdown.Item onClick={() => {}} style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🟢</span> Disponible</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => {}} style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🔴</span> Ocupado</NavDropdown.Item>
+                  </NavDropdown>
+
+
                   <NavDropdown
                     title="Ajustes"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -109,6 +123,7 @@ function Header() {
                   
                 </Form>
                 {(data.length > 0 && inputNav.length > 3) ? <UserFinderList users = {data}/>: <Loading/>}
+
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
