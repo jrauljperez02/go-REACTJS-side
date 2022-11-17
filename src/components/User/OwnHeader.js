@@ -2,6 +2,8 @@ import React, {useContext} from 'react'
 import UserContext from '../../context/UserContext'
 import Navbar from './Navbar'
 
+import default_profile_picture from '../../images/default_profile_picture.jpg'
+
 const OwnHeader = () => {
 
     const {me} = useContext(UserContext)
@@ -14,7 +16,7 @@ const OwnHeader = () => {
                         <div className="profile-header-cover"></div>
                             <div className="profile-header-content">
                                 <div className="profile-header-img">
-                                    <img src={me.profile_picture} alt=""/>
+                                    <img src={me.profile_picture === null ? default_profile_picture: me.profile_picture} alt=""/>
                                 </div>
                                 <div className="profile-header-info">
                                     <div style={{display: 'flex',alignItems: 'center'}}>

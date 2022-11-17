@@ -8,14 +8,15 @@ function PostSlider(props) {
     <Carousel>
       <Carousel.Item key = {data}>
             <img
+              style={{borderRadius: 20}}
               className="d-block w-100"
               src={data}
               alt="First slide"
             />
-            {/* <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption> */}
+            <Carousel.Caption>
+              {/* <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+            </Carousel.Caption>
           </Carousel.Item>
     </Carousel>
   );

@@ -1,19 +1,16 @@
 import React, {useContext} from 'react'
-import { Link } from 'react-router-dom'
-import AuthContext from '../../../context/AuthContext'
-import useApi from '../../../hooks/useApi'
+import UserContext from '../../../context/UserContext'
 import '../../../styles/About-section.scss'
-import {DOMAIN} from '../../../utils/domain'
+
+import default_profile_picture from '../../../images/default_profile_picture.jpg'
+import { useNavigate } from 'react-router-dom'
 
 
 const AboutSection = () => {
 
-  const {authTokens} = useContext(AuthContext)
+  const {allUsersAsArray} = useContext(UserContext)
 
-  const {data} = useApi( {
-    url: DOMAIN + '/api/user/users/',
-    access: authTokens.access,
-  })
+  const navigate = useNavigate()
   
   return (
     <div className='container about'>
@@ -27,12 +24,15 @@ const AboutSection = () => {
           </div>
 
           <div className='friends-container-images'>
-            {!data ? null: (
-              data.map(friend => (
-                <Link to = {`/user/${friend.username}/`}  key = {friend.id}t>
-                  <img src= {friend.profile_picture} alt = '' />
+            {!allUsersAsArray ? null: (
+              allUsersAsArray.map(friend => (
+                <div onClick={() => {
+                      navigate(`/user/${friend.username}/`);
+                      window.location.reload(true);
+                    }} key = {friend.id}t>
+                  <img src= {friend.profile_picture === null ? default_profile_picture: friend.profile_picture} alt = '' />
                   <p>{friend.name}</p>
-                </Link>
+                </div>
               ))
             )}
           </div>

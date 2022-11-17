@@ -6,6 +6,8 @@ import { frontendDomain, DOMAIN } from '../../utils/domain'
 import useApi from '../../hooks/useApi'
 import AuthContext from '../../context/AuthContext'
 
+import default_profile_picture from '../../images/default_profile_picture.jpg'
+
 const UserHeader = () => {
 
     const {authTokens} = useContext(AuthContext)
@@ -23,7 +25,7 @@ const UserHeader = () => {
                         <div className="profile-header-cover"></div>
                             <div className="profile-header-content">
                                 <div className="profile-header-img">
-                                    <img src={data[0].profile_picture} alt=""/>
+                                    <img src={data[0].profile_picture === null ? default_profile_picture: data[0].profile_picture} alt=""/>
                                 </div>
                                 <div className="profile-header-info">
                                     <div style={{display: 'flex',alignItems: 'center'}}>

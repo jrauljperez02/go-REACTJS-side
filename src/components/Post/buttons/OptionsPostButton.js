@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -6,11 +6,11 @@ import AuthContext from '../../../context/AuthContext';
 
 import { DOMAIN } from '../../../utils/domain';
 
+import {BsTrashFill} from 'react-icons/bs'
+
 const OptionsPostButton = (props) => {
 
     const {postId} = props;
-    const [id, setId] = useState(null)
-
 
     const {authTokens} = useContext(AuthContext)
 
@@ -44,13 +44,10 @@ const OptionsPostButton = (props) => {
                 title={variant}
               >
                 <Dropdown.Item 
-                  eventKey="1"
-                  onClick={() => setId(postId)}
-                  >Editar</Dropdown.Item>
-                <Dropdown.Item 
                   eventKey="2"
+                  style={{display: 'flex', alignItems: 'center', gap: 5}}
                   onClick={() => {deletePost(postId)}}
-                  >Borrar</Dropdown.Item>
+                  ><BsTrashFill/>Eliminar</Dropdown.Item>
                 
               </DropdownButton>
             ),

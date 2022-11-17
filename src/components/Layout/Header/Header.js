@@ -10,17 +10,21 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import AuthContext from '../../../context/AuthContext'
 import InputContext from '../../../context/InputContext'
+import UserContext from '../../../context/UserContext'
 
 import UserFinderList from '../../User/UserFinderList';
 import { DOMAIN } from '../../../utils/domain';
 
-import Loading from '../../Loading'
 import { useNavigate } from 'react-router-dom';
+
+import default_profile_picture from '../../../images/default_profile_picture.jpg'
 
 function Header() {
 
   const {logoutUser, authTokens} = useContext(AuthContext);
   const {inputNav, setInputNav} = useContext(InputContext);
+  const {me} = useContext(UserContext);
+
 
   const [data, setData] = useState([])
 
@@ -83,7 +87,20 @@ function Header() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/">Perfil</Nav.Link>
+                  <Nav.Link  onClick = {() => {navigate(`/me/`)}}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center'
+                      }}
+                    >
+                    <img 
+                      style={{
+                        maxWidth: '6%',
+                        borderRadius: 10,
+                        marginRight: 6
+                      }}
+                      alt = '' 
+                      src = {me.profile_picture === null ? default_profile_picture: me.profile_picture}/>Perfil</Nav.Link>
                   <Nav.Link onClick={logoutUser} href="/login/">Cerrar sesion</Nav.Link>
 
 
@@ -92,7 +109,7 @@ function Header() {
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item onClick={() => {}} style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🟢</span> Disponible</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => {}} style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🔴</span> Ocupado</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => {}} style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🔴</span> Invisible</NavDropdown.Item>
                   </NavDropdown>
 
 
@@ -122,7 +139,7 @@ function Header() {
                     variant="btn btn-outline-primary">Buscar</Button>
                   
                 </Form>
-                {(data.length > 0 && inputNav.length > 3) ? <UserFinderList users = {data}/>: <Loading/>}
+                { inputNav.length > 3 ? <UserFinderList users = {data}/>: null}
 
               </Offcanvas.Body>
             </Navbar.Offcanvas>
