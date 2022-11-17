@@ -19,17 +19,17 @@ import { useNavigate } from 'react-router-dom';
 
 import default_profile_picture from '../../../images/default_profile_picture.jpg'
 
+import scrollToTop from '../../../utils/scrollToTop';
+
 function Header() {
 
   const {logoutUser, authTokens} = useContext(AuthContext);
   const {inputNav, setInputNav} = useContext(InputContext);
   const {me} = useContext(UserContext);
 
-
   const [data, setData] = useState([])
 
   const navigate = useNavigate();
-
 
   useEffect(() => {
 
@@ -57,6 +57,48 @@ function Header() {
     fetchUsers();
 
   },[inputNav])
+
+
+
+  const enableOnline = async(e) => {
+    e.preventDefault();
+    try{
+      const response = await fetch(`${DOMAIN}/api/user/users/${me.id}/`,{
+        method: 'PATCH',
+        body: JSON.stringify({"is_online": true}),
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization' : `Bearer ${authTokens.access}`,
+        },
+      })
+      if(!response.ok){
+        console.log(response);
+      }
+      window.location.reload();
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  const disableOnline = async(e) => {
+    e.preventDefault();
+    try{
+      const response = await fetch(`${DOMAIN}/api/user/users/${me.id}/`,{
+        method: 'PATCH',
+        body: JSON.stringify({"is_online": false}),
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization' : `Bearer ${authTokens.access}`,
+        },
+      })
+      if(!response.ok){
+        console.log(response);
+      }
+      window.location.reload();
+    }catch(error){
+      console.log(error)
+    }
+  }
   
 
   return (
@@ -69,7 +111,12 @@ function Header() {
             }
         } expand={expand} className="mb-3 " >
           <Container fluid className='container'>
-            <Navbar.Brand style = {{color: 'white'}} href="/"><h1>Go</h1></Navbar.Brand>
+            <Navbar.Brand 
+              style = {{color: 'white'}} 
+              onClick={() => {
+                  navigate('/')
+                  scrollToTop();
+                }}><h1>Go</h1></Navbar.Brand>
             <Navbar.Toggle 
                 aria-controls={`offcanvasNavbar-expand-${expand}`} 
                 className="navbar-dark bg-dark"
@@ -81,13 +128,22 @@ function Header() {
               
             >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} onClick = {() => {navigate(`/`)}}>
+                <Offcanvas.Title 
+                id={`offcanvasNavbarLabel-expand-${expand}`} 
+                onClick = {() => {
+                    navigate(`/`);
+                    scrollToTop();
+                  }}>
                   Inicio
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link  onClick = {() => {navigate(`/me/`)}}
+                  <Nav.Link  onClick = {() => 
+                  {
+                    navigate(`/me/`);
+                    scrollToTop();
+                  }}
                       style={{
                         display: 'flex',
                         alignItems: 'center'
@@ -101,15 +157,22 @@ function Header() {
                       }}
                       alt = '' 
                       src = {me.profile_picture === null ? default_profile_picture: me.profile_picture}/>Perfil</Nav.Link>
-                  <Nav.Link onClick={logoutUser} href="/login/">Cerrar sesion</Nav.Link>
+                  <Nav.Link onClick={() => {
+                    logoutUser();
+                    navigate('/login/');
+                  }}>Cerrar sesion</Nav.Link>
 
 
                   <NavDropdown
                     title="Editar estado"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item onClick={() => {}} style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🟢</span> Disponible</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => {}} style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🔴</span> Invisible</NavDropdown.Item>
+                    <NavDropdown.Item 
+                      onClick={enableOnline} 
+                      style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🟢</span> Disponible</NavDropdown.Item>
+                    <NavDropdown.Item 
+                      onClick={disableOnline} 
+                      style={{display: 'flex', alignItems: 'center'}}><span style={{fontSize: 8, marginRight: 5}}>🔴</span> Invisible</NavDropdown.Item>
                   </NavDropdown>
 
 
@@ -127,7 +190,9 @@ function Header() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Form className="d-flex" style={{marginTop: 20}}>
+                <Form 
+                  className="d-flex" 
+                  style={{marginTop: 20}}>
                   <Form.Control
                     type="search"
                     placeholder="Buscar usuarios"

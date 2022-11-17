@@ -10,6 +10,7 @@ import VideosSection from '../components/User/ProfileViewSections/VideosSection'
 import Layout from '../components/Layout/Layout';
 import OwnHeader from '../components/User/OwnHeader';
 import PostContext from '../context/PostContext';
+import EmptySection from '../components/EmptySection';
 
 const OwnProfile = () => {
 
@@ -21,7 +22,6 @@ const OwnProfile = () => {
 
     const {authPosts} = useContext(PostContext);
 
-
     return (
     <Layout>
         <div className="container">
@@ -32,6 +32,8 @@ const OwnProfile = () => {
                     {showAbout && <AboutSection/>}
                     {showPhotos && <PhotosSection/>}
                     {showVideos && <VideosSection/>}
+
+                    {authPosts.length === 0 && <EmptySection/>}
                 </div>
             </div>
         </div>
