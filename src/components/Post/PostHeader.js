@@ -6,7 +6,8 @@ import OptionsPostButton from './buttons/OptionsPostButton';
 const PostHeader = (props) => {
 
     const {allUsers} = useContext(UserContext);
-    const {user} = props;
+    const {user, id} = props;
+
   return (
     <div className="timeline-header" style={
         {
@@ -22,7 +23,7 @@ const PostHeader = (props) => {
       </Link>    
       )}
 
-      <OptionsPostButton/>
+      <OptionsPostButton postId = {id}/>
         
     </div>
   )

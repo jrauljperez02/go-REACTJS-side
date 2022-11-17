@@ -10,6 +10,7 @@ const Post = (props) => {
 
    const {post} = props;
 
+
    const textWithQuotes = (description) => (
       <div className="timeline-content">
          <p className="lead">
@@ -44,7 +45,10 @@ const Post = (props) => {
       </div>
 
       <div className="timeline-body">
-         <PostHeader user = {post.user}/>
+         <PostHeader 
+            user = {post.user}
+            id = {post.id}
+            />
          {post.description !== null ? textWithQuotes(post.description): textWithoutQuotes(post.description)}
          {post.post_image === null ? null:  <PostSlider data = {post.post_image}/>}
          <div className="timeline-likes">
