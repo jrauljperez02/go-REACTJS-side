@@ -5,9 +5,10 @@ const Footer = () => {
     <div>
       <footer 
         className="text-center text-white" 
-        style={{
-        backgroundColor: '#ade0db',
-        marginTop: 30}}>
+        style={
+          { backgroundColor: '#ade0db',
+            marginTop: 30,
+          }}>
 
          <div className="container pt-4">
 
@@ -62,8 +63,8 @@ const Footer = () => {
         </div>
  
         <div className="text-center text-dark p-3" style={{backgroundColor: 'rgba(0, 0, 0, 0.2)'}}>
-          © 2020 Copyright:
-          <a className="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+          © 2022 Copyright:
+          <a className="text-dark" style={{marginLeft: 10}} href="/">GO</a>
         </div>
   
       </footer>

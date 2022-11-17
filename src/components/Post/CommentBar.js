@@ -11,8 +11,8 @@ const CommentBar = () => {
       <div className="input">
         <form>
           <div style={{display: 'flex'}}>
-            <input type="text" className="form-control rounded-corner" placeholder="Write a comment..."/>
-            <button className="btn btn-dark">Comment</button>
+            <input type="text" className="form-control rounded-corner" placeholder="Escribe un comentario..."/>
+            <button className="btn btn-dark">Comenta</button>
           </div>
         </form>
       </div>

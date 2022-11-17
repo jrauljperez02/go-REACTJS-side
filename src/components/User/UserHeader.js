@@ -32,7 +32,7 @@ const UserHeader = () => {
                                     </div>
         
                                     <p className="m-b-10">{data[0].username} </p>
-                                    <button className='btn btn-success'>Follow</button>
+                                    <button className='btn btn-success'>Seguir</button>
                                     
                                 </div>
                             </div>

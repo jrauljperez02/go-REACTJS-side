@@ -1,18 +1,15 @@
 import React, {useContext} from 'react'
 import Posts from '../components/Post/Posts';
 import '../styles/UserProfilePage.scss'
-import { DOMAIN } from '../utils/domain';
-import AuthContext from '../context/AuthContext';
-
 
 import { useSelector } from 'react-redux';
-import useApi from '../hooks/useApi';
 import AboutSection from '../components/User/ProfileViewSections/AboutSection';
 import PhotosSection from '../components/User/ProfileViewSections/PhotosSection';
 import VideosSection from '../components/User/ProfileViewSections/VideosSection';
 
 import Layout from '../components/Layout/Layout';
 import OwnHeader from '../components/User/OwnHeader';
+import PostContext from '../context/PostContext';
 
 const OwnProfile = () => {
 
@@ -22,14 +19,7 @@ const OwnProfile = () => {
     const showVideos = useSelector(state => state.navbar.showVideosSection)
 
 
-    const {authTokens } = useContext(AuthContext)
-
-
-    const {data} = useApi({
-        url : DOMAIN + '/api/post/posts/',
-        access: authTokens.access,
-        method: 'GET',
-    })
+    const {authPosts} = useContext(PostContext);
 
 
     return (
@@ -38,7 +28,7 @@ const OwnProfile = () => {
             <div className="row">
                 <div className="col-md-12">
                     <OwnHeader/>
-                    {showPosts && <Posts data = {data}/>}
+                    {showPosts && <Posts data = {authPosts}/>}
                     {showAbout && <AboutSection/>}
                     {showPhotos && <PhotosSection/>}
                     {showVideos && <VideosSection/>}

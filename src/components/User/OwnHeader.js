@@ -23,7 +23,7 @@ const OwnHeader = () => {
                                     </div>
         
                                     <p className="m-b-10">{me.username} </p>
-                                    <button className='btn btn-outline-light'>Edit profile</button>
+                                    <button className='btn btn-outline-light'>Editar perfil</button>
                                     
                                 </div>
                             </div>

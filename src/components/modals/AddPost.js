@@ -54,7 +54,7 @@ const AddPostModal = (props) => {
 
                 <Modal.Header clooseButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Create a post
+                        Publica algo!
                     </Modal.Title>
                 </Modal.Header>
 
@@ -62,12 +62,12 @@ const AddPostModal = (props) => {
                     <Row>
                         <Col sm={6}>
                             <Form>
-                                <Form.Label>What's on your mind?</Form.Label>
+                                <Form.Label>Cuentanos algo!</Form.Label>
                                 <Form.Control
                                     onChange={e => setInput({...input, description: e.target.value})}
                                     as="textarea" 
                                     rows={1} 
-                                    placeholder = 'Write here!'/>
+                                    placeholder = 'Escribe aqui!'/>
 
                                 <Form.Group>
                                     <Button 
@@ -77,13 +77,13 @@ const AddPostModal = (props) => {
                                         onClick={postData}
                                         >
                                         
-                                        Publish
+                                        Publicar
                                     </Button>
                                 </Form.Group>
                             </Form>
                         </Col>
                         <Col sm={6}>
-                            <Form.Label>Image</Form.Label>
+                            <Form.Label>Publica un momento!</Form.Label>
                             <Form.Control 
                                 id = 'inpFile'
                                 type = 'file'
@@ -96,7 +96,7 @@ const AddPostModal = (props) => {
 
 
                 <Modal.Footer>
-                    <Button variant="danger" onClick={props.close}>Close</Button>
+                    <Button variant="danger" onClick={props.close}>Cerra</Button>
                 </Modal.Footer>
         </Modal>
     </div>

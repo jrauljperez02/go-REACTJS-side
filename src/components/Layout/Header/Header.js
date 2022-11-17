@@ -79,33 +79,33 @@ function Header() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/me/">Profile</Nav.Link>
-                  <Nav.Link onClick={logoutUser} href="/login/">Logout</Nav.Link>
+                  <Nav.Link href="/">Inicio</Nav.Link>
+                  <Nav.Link href="/me/">Perfil</Nav.Link>
+                  <Nav.Link onClick={logoutUser} href="/login/">Cerrar sesion</Nav.Link>
                   <NavDropdown
-                    title="Account settings"
+                    title="Ajustes"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Edit profile</NavDropdown.Item>
+                    <NavDropdown.Item href="#action3">Editar perfil</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
-                      Edit password
+                      Editar contraseña
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5" >
-                      Something else here
+                      Cambiar lenguaje
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
                 <Form className="d-flex" style={{marginTop: 20}}>
                   <Form.Control
                     type="search"
-                    placeholder="Search users"
+                    placeholder="Buscar usuarios"
                     className="me-2"
                     aria-label="Search"
                     onChange={e => setInputNav(e.target.value)}
                   />
                   <Button 
-                    variant="btn btn-outline-primary">Search</Button>
+                    variant="btn btn-outline-primary">Buscar</Button>
                   
                 </Form>
                 {(data.length > 0 && inputNav.length > 3) ? <UserFinderList users = {data}/>: <Loading/>}

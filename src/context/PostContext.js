@@ -8,7 +8,8 @@ export default PostContext;
 export const PostProvider = ({children}) => {
 
     const {authTokens} = useContext(AuthContext);
-    const [allPosts, setAllPosts] = useState([])
+    const [allPosts, setAllPosts] = useState([]);
+    const [authPosts, setAuthPosts] = useState([]);
 
     const fetchAllPosts = async() => {
         try {
@@ -29,13 +30,36 @@ export const PostProvider = ({children}) => {
           }
     }
 
+    const fetchAuthPosts = async() => {
+        try {
+            const response = await fetch(`${DOMAIN}/api/post/posts/`, {
+              method: 'GET',
+              headers: {
+                  Accept: 'application/json',
+                  'Authorization' : `Bearer ${authTokens.access}`,
+              },
+            });
+            if (!response.ok) {
+              throw new Error(`Error! status: ${response.status}`);
+            }
+            const result = await response.json();
+            setAuthPosts(result);
+          } catch (err) {
+            console.log(err.message);
+          }
+    }
+
+
+
     let contextData = {
         allPosts,
+        authPosts,
     }
 
     useEffect(() => {
         if(authTokens){
             fetchAllPosts();
+            fetchAuthPosts();
         }
     },[authTokens])
 

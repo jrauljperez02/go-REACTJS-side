@@ -41,10 +41,10 @@ const Navbar = () => {
         <button className = {showPosts ? 'nav-link active': 'nav-link'} onClick={showPostsHandler}>POSTS</button>
       </li>
       <li className='nav-item'>
-        <button className = {showAbout ? 'nav-link active': 'nav-link'} onClick={showAboutHandler}>ABOUT</button>
+        <button className = {showAbout ? 'nav-link active': 'nav-link'} onClick={showAboutHandler}>TU</button>
       </li>
       <li className='nav-item'>
-        <button className = {showPhotos ? 'nav-link active': 'nav-link'} onClick={showPhotosHandler}>PHOTOS</button>
+        <button className = {showPhotos ? 'nav-link active': 'nav-link'} onClick={showPhotosHandler}>FOTOS</button>
       </li>
       <li className='nav-item'>
         <button className = {showVideos ? 'nav-link active': 'nav-link'} onClick={showVideosSection}>VIDEOS</button>

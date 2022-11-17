@@ -46,7 +46,7 @@ const Post = (props) => {
       <div className="timeline-body">
          <PostHeader user = {post.user}/>
          {post.description !== null ? textWithQuotes(post.description): textWithoutQuotes(post.description)}
-         <PostSlider/>
+         {post.post_image === null ? null:  <PostSlider data = {post.post_image}/>}
          <div className="timeline-likes">
             <div className="stats-right">
                <span className="stats-text">259 Shares</span>

@@ -1,7 +1,7 @@
 import React from 'react'
 import MenuItem from './MenuItem'
 import {BsFillChatFill} from 'react-icons/bs'
-import {GrGallery} from 'react-icons/gr'
+import {RiGalleryFill} from 'react-icons/ri'
 import {AiOutlineUsergroupDelete} from 'react-icons/ai'
 import {GiOctopus} from 'react-icons/gi'
 
@@ -10,23 +10,23 @@ const Menu = () => {
     const options = [
         {
             icon: <BsFillChatFill/>,
-            label: 'Messages',
+            label: 'Mensajes',
             id: 0
         },
         {
-            icon: <GrGallery/>,
-            label: 'Gallery',
+            icon: <RiGalleryFill/>,
+            label: 'Galeria',
             id: 1,
         },
         {   
             icon: <AiOutlineUsergroupDelete/>,
             id: 2,
-            label: 'Groups'
+            label: 'Grupos'
         },
         {
             icon: <GiOctopus/>,
             id: 3,
-            label: 'Top'
+            label: 'Tendencias'
         }
     ]
 

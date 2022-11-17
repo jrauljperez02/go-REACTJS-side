@@ -9,12 +9,11 @@
     position: absolute;
     top: 33px;
     width: 13px;
+    margin-left: 140px;
     height: 13px;
     border-radius: 50%;
-    background: #ccc;
+    background: #ade0db;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
-    max-width: 80%;
-    margin: 0 auto;
   }
   .lds-ellipsis div:nth-child(1) {
     left: 8px;

@@ -12,6 +12,7 @@
         border-radius: 10px;
         box-shadow: 8px 8px 8px #ade0db;
 
+        
         border: 1px solid #ade0db;
     }
 
@@ -21,8 +22,9 @@
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
+        
         gap: 20px;
-        padding-bottom: 2px;
+
 
         img{
             max-height: 60px;
@@ -37,16 +39,6 @@
         }
     }
 
-    .cretea-post-buttons{
-        margin-top: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 7px;
-        
-        button{
-            padding: 0 10%;
-        }
-    }
+
 
 }

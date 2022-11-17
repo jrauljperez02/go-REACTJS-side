@@ -15,8 +15,8 @@ const OptionsPostButton = () => {
                 variant={variant.toLowerCase()}
                 title={variant}
               >
-                <Dropdown.Item eventKey="1">Edit post</Dropdown.Item>
-                <Dropdown.Item eventKey="2">Delete post</Dropdown.Item>
+                <Dropdown.Item eventKey="1">Editar</Dropdown.Item>
+                <Dropdown.Item eventKey="2">Borrar</Dropdown.Item>
                 
               </DropdownButton>
             ),

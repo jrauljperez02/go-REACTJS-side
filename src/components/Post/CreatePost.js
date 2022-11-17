@@ -18,11 +18,7 @@ const CreatePost = () => {
           <div className='create-post-input'>
             {me && <img alt='' src = {me.profile_picture} />}
             
-            <input placeholder="What's on your mind?"/>
-          </div>
-
-          <div className='cretea-post-buttons'>
-            <button className="btn btn-dark">Create a post</button>
+            <input placeholder="Cuentanos algo!"/>
           </div>
         </div>
 
