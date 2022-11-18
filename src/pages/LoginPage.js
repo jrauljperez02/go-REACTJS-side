@@ -1,75 +1,77 @@
 import React, {useContext} from 'react'
 import AuthContext from '../context/AuthContext'
 import logo from '../images/logo.png'
-import {
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-}
-from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const LoginPage = () => {
 
   let {loginUser} = useContext(AuthContext)
 
+  const navigate = useNavigate()
+
   return (
-    <MDBContainer className="my-5">
-            
-    <MDBCard style = {{marginTop: 160}}>
-      <MDBRow className='g-0'>
 
-        <MDBCol md='6'>
-          <MDBCardImage src='https://images.pexels.com/photos/5605423/pexels-photo-5605423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt="login form" className='rounded-start w-100'/>
-        </MDBCol>
+<section className="vh-100 gradient-custom">
+  <div className="container py-5 h-100">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div className="card bg-dark text-white" style={{borderRadius: '0.5rem'}}>
+          <div className="card-body p-5 text-center">
 
-        <MDBCol md='6'>
-          <MDBCardBody className='d-flex flex-column' style={{padding: 100}}>
+            <form className="mb-md-5 mt-md-4 pb-5" onSubmit={loginUser}>
 
-            <div className='d-flex flex-row mt-2'>
-              <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: '#ff6219' }}/>
-              <img src={logo} style = {{maxWidth: '100%'}} alt='logo'/>
-            </div>
+              <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+              <p className="text-white-50 mb-5">Por favor, introduce tu correo y contraseña!</p>
 
-            <form onSubmit={loginUser}>
-              <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Iniciar sesion</h5>
-
-              <div className='input-group mb-3 input-names'>
-                <input 
-                  type="text" 
-                  className="form-control" 
-                  name='email' 
-                  placeholder='Email'
-                  />
+              <div className="form-outline form-white mb-4">
+                <input
+                  name = 'email' 
+                  type="email" 
+                  id="typeEmailX" 
+                  className="form-control form-control-lg" />
+                <label 
+                  style={{marginTop: 7}}
+                  className="form-label" 
+                  htmlFor="typeEmailX">Email</label>
               </div>
 
-              <div className='input-group mb-3 input-names'>
+              <div className="form-outline form-white mb-4">
                 <input 
+                  name = 'password'
                   type="password" 
-                  className="form-control" 
-                  placeholder='Contraseña'
-                  name = 'password' />
+                  id="typePasswordX" 
+                  className="form-control form-control-lg" />
+                <label 
+                  style={{marginTop: 7}}
+                  className="form-label" 
+                  htmlFor="typePasswordX">Password</label>
               </div>
 
-              <button className="btn btn-dark btn-lg btn-block" type = 'submit' color='dark' size='lg'>Accede</button><hr/>
+              <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
 
-              <Link to = '/create-user/' style={{
-                color: 'steelblue',
-                textDecoration: 'none'
-              }}>No tienes cuenta? - Registrate ahora!</Link>
+              <button className="btn btn-outline-light btn-lg px-5" type="submit">Iniciar sesion</button>
+
+              <div className="d-flex justify-content-center text-center mt-4 pt-1">
+                <a href="#!" className="text-white"><i className="fab fa-facebook-f fa-lg"></i></a>
+                <a href="#!" className="text-white"><i className="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                <a href="#!" className="text-white"><i className="fab fa-google fa-lg"></i></a>
+              </div>
+
             </form>
 
-          </MDBCardBody>
-        </MDBCol>
-      </MDBRow>
-    </MDBCard>
+            <div onClick={() => navigate('/create-user/')}>
+              <p className="mb-0">
+                No tienes una cuenta?<a href="#!" style={{marginLeft: 10}} className="text-white-50 fw-bold">Registrate ahora!</a>
+              </p>
+            </div>
 
-  </MDBContainer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   )
 }
 

@@ -20,9 +20,6 @@ const Home = () => {
           <div className='grid-mid'>
             <Posts data = {allPosts}/>
           </div>
-          <div className=''>
-            <Following/>
-          </div>
         </div>
     </Layout>
   )

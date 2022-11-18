@@ -13,37 +13,110 @@ const AboutSection = () => {
   const navigate = useNavigate()
   
   return (
-    <div className='container about'>
-      <div className='left'>
-        <div className='friends-section'>
 
+<div class="container bootdey">
+<div class="row">
+   <div class="col-md-4">
 
-          <div className='friends-container-text'>
-            <h4>Friends</h4>
-            <button className='btn btn-outline-dark'>See all friends</button>
-          </div>
-
-          <div className='friends-container-images'>
-            {!allUsersAsArray ? null: (
-              allUsersAsArray.map(friend => (
-                <div onClick={() => {
-                      navigate(`/user/${friend.username}/`);
-                      window.location.reload(true);
-                    }} key = {friend.id}t>
-                  <img src= {friend.profile_picture === null ? default_profile_picture: friend.profile_picture} alt = '' />
-                  <p>{friend.name}</p>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
+      <div class="panel widget">
+         <div class="half-float">
+            <img src="https://bootdey.com/img/Content/bg1.jpg" alt="" class="img-responsive"/>
+            <div class="half-float-bottom">
+               <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="img-thumbnail img-circle thumb128"/>
+            </div>
+         </div>
+         <div class="panel-body text-center">
+            <h3 class="m0">Clark Kentman</h3>
+            <p class="text-muted">Lead director</p>
+            <p>Proin metus justo, commodo in ultrices at, lobortis sit amet dui. Fusce dolor purus, adipiscing a tempus at, gravida vel purus.</p>
+         </div>
+         <div class="panel-body text-center bg-gray-dark">
+            <div class="row row-table">
+               <div class="col-xs-4">
+                  <h3 class="m0">400</h3>
+                  <p class="m0">Photos</p>
+               </div>
+               <div class="col-xs-4">
+                  <h3 class="m0">2000</h3>
+                  <p class="m0">Likes</p>
+               </div>
+               <div class="col-xs-4">
+                  <h3 class="m0">500</h3>
+                  <p class="m0">Following</p>
+               </div>
+            </div>
+         </div>
       </div>
 
-      
-      <div className='right'>
-        <h4>About</h4>
+   </div>
+   <div class="col-md-4">
+
+      <div class="panel widget">
+         <div class="half-float">
+            <img src="https://bootdey.com/img/Content/bg1.jpg" alt="" class="img-responsive"/>
+            <div class="half-float-bottom">
+               <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-thumbnail img-circle thumb128"/>
+            </div>
+         </div>
+         <div class="panel-body text-center">
+            <h3 class="m0">Maria Berriut</h3>
+            <p class="text-muted">Lead director</p>
+            <p>Proin metus justo, commodo in ultrices at, lobortis sit amet dui. Fusce dolor purus, adipiscing a tempus at, gravida vel purus.</p>
+         </div>
+         <div class="panel-body text-center bg-gray-dark">
+            <div class="row row-table">
+               <div class="col-xs-4">
+                  <h3 class="m0">400</h3>
+                  <p class="m0">Photos</p>
+               </div>
+               <div class="col-xs-4">
+                  <h3 class="m0">2000</h3>
+                  <p class="m0">Likes</p>
+               </div>
+               <div class="col-xs-4">
+                  <h3 class="m0">500</h3>
+                  <p class="m0">Following</p>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
+
+   </div>
+   <div class="col-md-4">
+
+      <div class="panel widget">
+         <div class="half-float">
+            <img src="https://bootdey.com/img/Content/bg1.jpg" alt="" class="img-responsive"/>
+            <div class="half-float-bottom">
+               <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="img-thumbnail img-circle thumb128"/>
+            </div>
+         </div>
+         <div class="panel-body text-center">
+            <h3 class="m0">Mark planty</h3>
+            <p class="text-muted">Lead director</p>
+            <p>Proin metus justo, commodo in ultrices at, lobortis sit amet dui. Fusce dolor purus, adipiscing a tempus at, gravida vel purus.</p>
+         </div>
+         <div class="panel-body text-center bg-gray-dark">
+            <div class="row row-table">
+               <div class="col-xs-4">
+                  <h3 class="m0">400</h3>
+                  <p class="m0">Photos</p>
+               </div>
+               <div class="col-xs-4">
+                  <h3 class="m0">2000</h3>
+                  <p class="m0">Likes</p>
+               </div>
+               <div class="col-xs-4">
+                  <h3 class="m0">500</h3>
+                  <p class="m0">Following</p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>
+</div>
   )
 }
 
