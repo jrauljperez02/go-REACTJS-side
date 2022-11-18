@@ -6,6 +6,7 @@ import CreateUserPage from './pages/CreateUserPage';
 import OwnProfile from './pages/OwnProfile';
 import Home from './pages/Home'
 import UserProfile from './pages/UserProfile';
+import Chat from './messages/Chat';
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/me/' element = {<OwnProfile/>}/>
         <Route path='/' element = {<Home/>} />
         <Route path='/user/:username/' element = {<UserProfile/>} />
+        <Route path='/chat/'element = {<Chat/>} />
       </Routes>
     </div>
   )

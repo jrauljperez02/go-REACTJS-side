@@ -21,6 +21,9 @@ import default_profile_picture from '../../../images/default_profile_picture.jpg
 
 import scrollToTop from '../../../utils/scrollToTop';
 
+import {RiLogoutBoxLine} from 'react-icons/ri'
+import {AiOutlineMessage} from 'react-icons/ai'
+
 function Header() {
 
   const {logoutUser, authTokens} = useContext(AuthContext);
@@ -28,6 +31,12 @@ function Header() {
   const {me} = useContext(UserContext);
 
   const [data, setData] = useState([])
+
+  const alignItems = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 10
+  }
 
   const navigate = useNavigate();
 
@@ -144,27 +153,35 @@ function Header() {
                     navigate(`/me/`);
                     scrollToTop();
                   }}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center'
-                      }}
+                      style={alignItems}
                     >
                     <img 
                       style={{
                         maxWidth: '6%',
                         borderRadius: 10,
-                        marginRight: 6
+                        
                       }}
                       alt = '' 
                       src = {me.profile_picture === null ? default_profile_picture: me.profile_picture}/>Perfil</Nav.Link>
                   <Nav.Link onClick={() => {
                     logoutUser();
                     navigate('/login/');
-                  }}>Cerrar sesion</Nav.Link>
+                  }}
+                    style = {alignItems}
+                  ><RiLogoutBoxLine/>Cerrar sesion</Nav.Link>
+
+
+                  <Nav.Link onClick={() => {
+                    logoutUser();
+                    navigate('/chat/');
+                  }}
+                    style = {alignItems}
+                  ><AiOutlineMessage/>Chat</Nav.Link>
 
 
                   <NavDropdown
-                    title="Editar estado"
+                    title='Editar estado'
+                    style = {alignItems}
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item 

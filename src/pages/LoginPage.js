@@ -1,7 +1,6 @@
 import React, {useContext} from 'react'
 import AuthContext from '../context/AuthContext'
-import logo from '../images/logo.png'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginPage = () => {

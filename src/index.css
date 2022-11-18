@@ -1,7 +1,8 @@
 body{
     margin: 0;
     height:100vh;
-    height: 100%
+    height: 100%;
+    background-image: linear-gradient(to right, rgb(238, 240, 248), rgb(238, 238, 238), rgba(238, 240, 248, 0.548));
 }
 i{
     margin-right: 10px;
@@ -16,8 +17,12 @@ i{
 a{
     text-decoration: none;
 }
+a:hover{
+    text-decoration: none;
+}
 
 .gradient-custom {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to top, #00272d,#0c7e7e)
+  background: linear-gradient(to top, #ffffff,#ade0db)
   }
+

@@ -9,33 +9,13 @@ import PostSlider from './slider/PostSlider';
 const Post = (props) => {
 
    const {post} = props;
-
-
-   const textWithQuotes = (description) => (
-      <div className="timeline-content">
-         <p className="lead">
-            <i className="fa fa-quote-left fa-fw pull-left"></i>
-            {description}
-            <i className="fa fa-quote-right fa-fw pull-right"></i>
-         </p>
-      </div>
-   )
-
    const hour = post.publish_date.split('T')[1].split('.')[0].split(':')[0]
    const minute = post.publish_date.split('T')[1].split('.')[0].split(':')[1]
 
-   const textWithoutQuotes = (description) => (
-      <div className="timeline-content">
-          <p>
-            {description}
-          </p>
-       </div>
-   )
-
 
   return (
-    <li>
-      <div className="timeline-time">
+    <li >
+      <div className="timeline-time" >
          <span className="date">{dateFormat(post.publish_date, "mmmm dS, yyyy")}</span>
          <span className="time">{hour}:{minute}</span>
       </div>
@@ -44,12 +24,23 @@ const Post = (props) => {
          <a href="javascript">&nbsp;</a>
       </div>
 
-      <div className="timeline-body">
+      <div className="timeline-body" >
          <PostHeader 
             user = {post.user}
             id = {post.id}
             />
-         {post.description !== null ? textWithQuotes(post.description): textWithoutQuotes(post.description)}
+
+         {post.description === null ? null: (
+         <div className="timeline-content">
+            <p className="lead">
+               <i className="fa fa-quote-left fa-fw pull-left"></i>
+               {post.description}
+               <i className="fa fa-quote-right fa-fw pull-right"></i>
+            </p>
+         </div>
+         )}
+
+         
          {post.post_image === null ? null:  <PostSlider data = {post.post_image}/>}
          <div className="timeline-likes">
             <div className="stats-right">

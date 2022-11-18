@@ -7,10 +7,15 @@ import AuthContext from '../../../context/AuthContext';
 import { DOMAIN } from '../../../utils/domain';
 
 import {BsTrashFill} from 'react-icons/bs'
+import {BiHide} from 'react-icons/bi'
+
+import UserContext from '../../../context/UserContext';
 
 const OptionsPostButton = (props) => {
 
-    const {postId} = props;
+    const {postId, userId} = props;
+    const {me} = useContext(UserContext)
+
 
     const {authTokens} = useContext(AuthContext)
 
@@ -29,6 +34,23 @@ const OptionsPostButton = (props) => {
       }
     }
 
+
+    const deletePostButton = (
+      <Dropdown.Item 
+        eventKey="2"
+        style={{display: 'flex', alignItems: 'center', gap: 5}}
+        onClick={() => {deletePost(postId)}}
+        ><BsTrashFill/>Eliminar</Dropdown.Item>
+    )
+
+
+    const hidePostButton = (
+      <Dropdown.Item 
+        eventKey="2"
+        style={{display: 'flex', alignItems: 'center', gap: 5}}
+        onClick={() => {deletePost(postId)}}
+        ><BiHide/>Ocultar publicacion</Dropdown.Item>
+    )
     
 
     return (
@@ -43,11 +65,9 @@ const OptionsPostButton = (props) => {
                 variant={variant.toLowerCase()}
                 title={variant}
               >
-                <Dropdown.Item 
-                  eventKey="2"
-                  style={{display: 'flex', alignItems: 'center', gap: 5}}
-                  onClick={() => {deletePost(postId)}}
-                  ><BsTrashFill/>Eliminar</Dropdown.Item>
+
+                {me.id === userId ? deletePostButton: hidePostButton}
+                
                 
               </DropdownButton>
             ),
