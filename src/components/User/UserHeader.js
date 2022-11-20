@@ -17,12 +17,16 @@ const UserHeader = () => {
         access: authTokens.access
     })
 
+    console.log(data)
+
     return (
         <div id="content" className="content content-full-width">
             {data[0] === undefined ? null:  (
                 <div className="profile">
                     <div className="profile-header">
-                        <div className="profile-header-cover"></div>
+                        <div className="profile-header-cover"
+                            style={{backgroundImage: `url(${data[0].cover_picture === null ? '': data[0].cover_picture})`}}
+                        ></div>
                             <div className="profile-header-content">
                                 <div className="profile-header-img">
                                     <img src={data[0].profile_picture === null ? default_profile_picture: data[0].profile_picture} alt=""/>
