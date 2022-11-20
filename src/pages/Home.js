@@ -4,6 +4,8 @@ import '../styles/Home.scss'
 import Posts from '../components/Post/Posts'
 import PostContext from '../context/PostContext'
 
+
+
 const Home = () => {
 
   const {allPosts} = useContext(PostContext)
@@ -12,7 +14,7 @@ const Home = () => {
     <Layout>
         <div className='grid'>
           <div className='grid-left'>
-            
+
           </div>
           <div className='grid-mid'>
             <Posts data = {allPosts}/>

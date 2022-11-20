@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
-import AuthContext from '../../context/AuthContext'
+import AuthContext from '../../../context/AuthContext'
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap'
-import {DOMAIN} from '../../utils/domain'
+import {DOMAIN} from '../../../utils/domain'
 
 const AddPostModal = (props) => {
 
@@ -84,11 +84,18 @@ const AddPostModal = (props) => {
                         </Col>
                         <Col sm={6}>
                             <Form.Label>Publica un momento!</Form.Label>
-                            <Form.Control 
-                                id = 'inpFile'
-                                type = 'file'
-                                placeholder=''
-                                ></Form.Control>
+                            <div>
+                                <div className="mb-4 d-flex justify-content-center">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
+                                    alt="example placeholder" style={{width: 300}} />
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <div className="btn btn-dark btn-rounded">
+                                        <label className="form-label text-white m-1" htmlFor="customFile1">Choose file</label>
+                                        <input type="file" className="form-control d-none" id="customFile1" />
+                                    </div>
+                                </div>
+                            </div>
                         </Col>
                     </Row>
                 </Modal.Body>

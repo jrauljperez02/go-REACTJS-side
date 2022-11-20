@@ -7,8 +7,9 @@ import default_profile_picture from '../../images/default_profile_picture.jpg'
 
 const PostHeader = (props) => {
 
-    const {allUsers, me} = useContext(UserContext);
+    const {allUsers} = useContext(UserContext);
     const {user, id} = props;
+
 
   return (
     <div className="timeline-header" style={

@@ -8,9 +8,11 @@ import PostSlider from './slider/PostSlider';
 
 const Post = (props) => {
 
+   
    const {post} = props;
    const hour = post.publish_date.split('T')[1].split('.')[0].split(':')[0]
    const minute = post.publish_date.split('T')[1].split('.')[0].split(':')[1]
+
 
 
   return (
@@ -28,7 +30,7 @@ const Post = (props) => {
          <PostHeader 
             user = {post.user}
             id = {post.id}
-            />
+         />
 
          {post.description === null ? null: (
          <div className="timeline-content">
@@ -41,7 +43,9 @@ const Post = (props) => {
          )}
 
          
-         {post.post_image === null ? null:  <PostSlider data = {post.post_image}/>}
+         {post.post_image === null ? null:  <PostSlider 
+            
+            data = {post}/>}
          <div className="timeline-likes">
             <div className="stats-right">
                <span className="stats-text">259 Shares</span>
